@@ -1110,6 +1110,10 @@ input:checked + .switch:active::before {
     .earn-item {
         width: 100%;
     }
+
+    .jobs-container {
+        margin-top: 153.33px;
+    }
 }
 
 @media (max-width: 599px) {
@@ -1162,6 +1166,12 @@ input:checked + .switch:active::before {
     .discover-item {
         width: 100%;
         height: 120px;
+    }
+}
+
+@media (max-width: 382px) {
+    .jobs-container {
+        margin-top: 192px;
     }
 }
 
