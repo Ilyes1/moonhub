@@ -556,7 +556,7 @@ footer h2 {
     list-style: none;
     background-color: #fff;
     position: absolute;
-    width: 100%;
+    width: fit-content;
     display: none;
     top: 35px;
     z-index: 8;
@@ -992,6 +992,7 @@ input:checked + .switch:active::before {
     flex: 1;
     border: none;
     outline: none;
+    padding: 0 10px;
 }
 
 .popup-input button {
@@ -1009,6 +1010,7 @@ input:checked + .switch:active::before {
 .popup-input button img {
     height: 20px;
 }
+
 
 
 

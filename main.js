@@ -14,7 +14,7 @@ $(document).ready(function() {
     })
 
     $('.popup, .popup-invite').hide()
-    $('.profile-btn, .talk').click(function(e) {
+    $(document).on('click', '.profile-btn, .talk', function(e) {
         e.preventDefault()
         $('.popup').fadeIn()
     })

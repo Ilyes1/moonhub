@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Moonhub Admin | Jobs</title>
+</head>
+<body>
+
+    <div class="menu-btn">
+        <img src="../assets/icons/menu.png" alt="">
+    </div>
+    
+    <div class="sidebar">
+
+        <a href="index.html" class="logo-container">
+            <img class="sidebar-logo" src="../images/logo.png" alt="">
+        </a>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="jobs.html">Jobs</a></li>
+            <li><a href="emails.html">Emails</a></li>
+        </ul>
+
+    </div>
+
+    <div class="table">
+
+        <h1 class="table-title">Jobs</h1>
+
+        <div class="add-job">
+            <button class="add-btn"> Add Job<img src="../assets/icons/plus.png" alt=""></button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr class="t-head">
+                        <th>Company</th>
+                        <th>Link</th>
+                        <th>Title</th>
+                        <th>Role</th>
+                        <th>Location</th>
+                        <th>Remote</th>
+                        <th>Company Stage</th>
+                        <th>Sector</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <div class="popup edit-job-popup">
+        <div class="popup-overlay"></div>
+        <form class="popup-form edit-job-form">
+            <div class="input">
+                <label>Company</label>
+                <input id="edit-company" type="text">
+            </div>
+            <div class="input">
+                <label>Link</label>
+                <input id="edit-link" type="text">
+            </div>
+            <div class="input">
+                <label>Title</label>
+                <input id="edit-title" type="text">
+            </div>
+            <div class="input">
+                <label>Role</label>
+                <input id="edit-role" type="text">
+            </div>
+            <div class="input">
+                <label>Location</label>
+                <input id="edit-location" type="text">
+            </div>
+            <div class="input">
+                <label>Remote</label>
+                <div class="choices">
+                    <div class="edit-choice yes">
+                        <div class="checkbox"><div class="checkbox-center active"></div></div>
+                        Yes
+                    </div>
+                    <div class="edit-choice no">
+                        <div class="checkbox"><div class="checkbox-center"></div></div>
+                        No
+                    </div>
+                </div>
+            </div>
+            <div class="input">
+                <label>Company Stage</label>
+                <input id="edit-stage" type="text">
+            </div>
+            <div class="input">
+                <label>Sector</label>
+                <input id="edit-sector" type="text">
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+    
+    
+    <div class="popup add-job-popup">
+        <div class="popup-overlay"></div>
+        <form class="popup-form add-job-form">
+            <div class="input">
+                <label>Company</label>
+                <input id="add-company" type="text">
+            </div>
+            <div class="input">
+                <label>Link</label>
+                <input id="add-link" type="text">
+            </div>
+            <div class="input">
+                <label>Title</label>
+                <input id="add-title" type="text">
+            </div>
+            <div class="input">
+                <label>Role</label>
+                <input id="add-role" type="text">
+            </div>
+            <div class="input">
+                <label>Location</label>
+                <input id="add-location" type="text">
+            </div>
+            <div class="input">
+                <label>Remote</label>
+                <div class="choices">
+                    <div class="add-choice yes">
+                        <div class="checkbox"><div class="checkbox-center active"></div></div>
+                        <span>Yes</span>
+                    </div>
+                    <div class="add-choice no">
+                        <div class="checkbox"><div class="checkbox-center"></div></div>
+                        <span>No</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input">
+                <label>Company Stage</label>
+                <input id="add-stage" type="text">
+            </div>
+            <div class="input">
+                <label>Sector</label>
+                <input id="add-sector" type="text">
+            </div>
+            <button type="submit">Add Job</button>
+        </form>
+    </div>
+
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="main.js"></script>
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+        import { getDatabase, push, ref, set, onChildAdded, child, remove } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBexLtfFSG_UyYcGpowKXGX3IjQTDYy1xM",
+          authDomain: "moonhub-8040e.firebaseapp.com",
+          projectId: "moonhub-8040e",
+          storageBucket: "moonhub-8040e.appspot.com",
+          messagingSenderId: "1093017471320",
+          appId: "1:1093017471320:web:6d50c0e710cbbedfa5bd2d",
+          measurementId: "G-E6FR4KEJKZ"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase();
+
+
+        var addRemote = 'Yes'
+        $('.add-choice.no .checkbox').click(function() {
+            addRemote = 'No'
+        })
+        $('.add-choice.yes .checkbox').click(function() {
+            addRemote = 'Yes'
+        })
+
+        $('.add-job-form').submit(function(e) {
+            e.preventDefault()
+
+            var company = $('#add-company').val()
+            var link = $('#add-link').val()
+            var title = $('#add-title').val()
+            var role = $('#add-role').val()
+            var location = $('#add-location').val()
+            var stage = $('#add-stage').val()
+            var sector = $('#add-sector').val()
+
+            set(push(ref(database, 'jobs')), {
+                company: company,
+                link: link,
+                title: title,
+                role: role,
+                location: location,
+                remote: addRemote,
+                stage: stage,
+                sector: sector,
+            })
+
+            $('.popup').fadeOut()
+        })
+
+        onChildAdded(ref(database, 'jobs'), (snapshot) => {
+            $('table tbody').prepend(`
+                <tr data-key="${snapshot.key}">
+                    <td id="company">${snapshot.val().company}</td>
+                    <td id="link"><a href="${snapshot.val().link}">${snapshot.val().link}</a></td>
+                    <td id="title">${snapshot.val().title}</td>
+                    <td id="role">${snapshot.val().role}</td>
+                    <td id="location">${snapshot.val().location}</td>
+                    <td id="remote">${snapshot.val().remote}</td>
+                    <td id="stage">${snapshot.val().stage}</td>
+                    <td id="sector">${snapshot.val().sector}</td>
+                    <td class="actions">
+                        <img class="edit-btn" src="../assets/icons/edit.png" alt="">
+                        <img class="delete-btn" src="../assets/icons/delete.png" alt="">
+                    </td>
+                </tr>
+            `)
+        })
+        
+        var key;
+
+        var editRemote = 'Yes'
+
+        $(document).on('click', '.edit-btn', function() {
+            key = $(this).parents('tr').attr('data-key')
+            $(this).parents('tr').find('td').each(function() {
+                $('.edit-job-form #edit-' + $(this).attr('id')).val($(this).text())
+            })
+            $('.edit-job-popup').fadeIn()
+        })
+
+
+        $('.edit-choice.no .checkbox').click(function() {
+            editRemote = 'No'
+        })
+        $('.edit-choice.yes .checkbox').click(function() {
+            editRemote = 'Yes'
+        })
+
+        $('.edit-job-form').submit(function(e) {
+            e.preventDefault()
+
+            var company = $('#edit-company').val()
+            var link = $('#edit-link').val()
+            var title = $('#edit-title').val()
+            var role = $('#edit-role').val()
+            var location = $('#edit-location').val()
+            var stage = $('#edit-stage').val()
+            var sector = $('#edit-sector').val()
+
+            set(child(ref(database, 'jobs'), key), {
+                company: company,
+                link: link,
+                title: title,
+                role: role,
+                location: location,
+                remote: editRemote,
+                stage: stage,
+                sector: sector,
+            })
+        })
+        
+        $(document).on('click', '.delete-btn', function() {
+            key = $(this).parents('tr').attr('data-key')
+
+            remove(child(ref(database, 'jobs'), key))
+            $(this).parents('tr').fadeOut()
+        })
+
+
+      </script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>Moonhub | Earn</title>
 </head>
 <body>
@@ -17,6 +18,7 @@
             <ul>
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a href="earn.html">Earn</a></li>
+                <li><a class="startups" href="#">For Startups</a></li>
                 <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
             </ul>
@@ -162,8 +164,8 @@
         <div class="popup-container">
             <h3>Your Invite Code</h3>
             <p>Enter your email below to get your custom invite code sent via email!</p>
-            <form class="popup-input">
-                <input type="text">
+            <form class="popup-input" id="emailForm">
+                <input type="text" id="emailInput" required>
                 <button type="submit"><img src="assets/icons/right.png" alt=""></button>
             </form>
         </div>
@@ -184,7 +186,62 @@
         </div>
     </div>
 
+    <!-- Calendy Widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/ihannouch7', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <!-- Calendy Widget End -->
+
     <script src="assets/js/jquery.js"></script>
     <script src="main.js"></script>
+
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+        import { getDatabase, push, ref, set, onChildAdded, child, remove } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBexLtfFSG_UyYcGpowKXGX3IjQTDYy1xM",
+          authDomain: "moonhub-8040e.firebaseapp.com",
+          projectId: "moonhub-8040e",
+          storageBucket: "moonhub-8040e.appspot.com",
+          messagingSenderId: "1093017471320",
+          appId: "1:1093017471320:web:6d50c0e710cbbedfa5bd2d",
+          measurementId: "G-E6FR4KEJKZ"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase();
+
+        $('#emailForm').submit(function(e) {
+            e.preventDefault()
+            if ($('#emailInput').val() !== '') {
+                set(push(ref(database, 'emails')), {
+                    email: $('#emailInput').val(),
+                    walletCount: 0
+                })
+                Email.send({
+                    SecureToken : "163d3bb8-5a49-42fc-8362-0a8af03b2246",
+                    To : $('#emailInput').val(),
+                    From : "ihannouch7@gmail.com",
+                    Subject : "This is the subject",
+                    Body : "And this is the body"
+                })
+                $('.popup-invite').fadeOut()
+            } else {
+
+            }
+        })
+
+
+      </script>
 </body>
 </html>
