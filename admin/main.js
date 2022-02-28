@@ -19,4 +19,18 @@ $(document).ready(function() {
     })
 
 
+    $('.form-dropdown').click(function() {
+        $('.form-dropdown').not(this).find('ul').slideUp(200)
+        $(this).find('ul').slideToggle(200)
+    })
+
+    $('.form-dropdown li').click(function() {
+        $(this).parents('.form-dropdown').find('h5').text($(this).text())
+        $(this).parents('.form-dropdown').find('h5').attr('data-filter', $(this).attr('data-filter'))
+    })
+
+
+
+
+
 })

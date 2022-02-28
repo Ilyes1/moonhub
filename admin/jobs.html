@@ -61,6 +61,13 @@
     <div class="popup edit-job-popup">
         <div class="popup-overlay"></div>
         <form class="popup-form edit-job-form">
+            <div class="progress"><div class="progress-bar"></div></div>
+            <div class="form-picture">
+                <button type="button" class="picture-btn">Choose a Picture</button>
+                <div class="picture-img">
+                    <img id="add-picture" src="" alt="">
+                </div>
+            </div>
             <div class="input">
                 <label>Company</label>
                 <input id="edit-company" type="text">
@@ -75,11 +82,33 @@
             </div>
             <div class="input">
                 <label>Role</label>
-                <input id="edit-role" type="text">
+                <div class="form-dropdown edit-role">
+                    <h5 data-filter="Software-Engineer">Software Engineer</h5>
+                    <ul>
+                        <li data-filter="Software-Engineer">Software Engineer</li>
+                        <li data-filter="Frontend-Engineer">Frontend Engineer</li>
+                        <li data-filter="Blockchain-Engineer">Blockchain Engineer</li>
+                        <li data-filter="Backend-Engineer">Backend Engineer</li>
+                        <li data-filter="Machine-Learning-Engineer">Machine Learning Engineer</li>
+                        <li data-filter="Security-Engineer">Security Engineer</li>
+                        <li data-filter="Data-Scientist">Data Scientist</li>
+                        <li data-filter="Designer">Designer</li>
+                        <li data-filter="Product-Manage">Product Manager</li>
+                        <li data-filter="BizDev/Op">BizDev / Ops</li>
+                        <li data-filter="Intern">Intern</li>
+                    </ul>
+                </div>
             </div>
             <div class="input">
                 <label>Location</label>
-                <input id="edit-location" type="text">
+                <div class="form-dropdown edit-location">
+                    <h5 data-filter="SF-Bay-Area">SF Bay Area</h5>
+                    <ul>
+                        <li data-filter="SF-Bay-Area">SF Bay Area</li>
+                        <li data-filter="NYC">NYC</li>
+                        <li data-filter="Singapore">Singapore</li>
+                    </ul>
+                </div>
             </div>
             <div class="input">
                 <label>Remote</label>
@@ -96,11 +125,34 @@
             </div>
             <div class="input">
                 <label>Company Stage</label>
-                <input id="edit-stage" type="text">
+                <div class="form-dropdown edit-stage">
+                    <h5 data-filter="Seed">Seed</h5>
+                    <ul>
+                        <li data-filter="Seed">Seed</li>
+                        <li data-filter="Series-A">Series A</li>
+                        <li data-filter="Series-B">Series B</li>
+                        <li data-filter="Series-C">Series C</li>
+                        <li data-filter="Series-D+">Series D+</li>
+                    </ul>
+                </div>
             </div>
             <div class="input">
                 <label>Sector</label>
-                <input id="edit-sector" type="text">
+                <div class="form-dropdown edit-sector">
+                    <h5 data-filter="web3">Web3</h5>
+                    <ul>
+                        <li data-filter="Web3">Web3</li>
+                        <li data-filter="Fintech">Fintech</li>
+                        <li data-filter="AI/ML">AI/ML</li>
+                        <li data-filter="Consumer">Consumer</li>
+                        <li data-filter="SaaS">SaaS</li>
+                        <li data-filter="Hardware">Hardware</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="input" style="width: 100%;">
+                <label>Description</label>
+                <textarea id="edit-description"></textarea>
             </div>
             <button type="submit">Save Changes</button>
         </form>
@@ -110,6 +162,13 @@
     <div class="popup add-job-popup">
         <div class="popup-overlay"></div>
         <form class="popup-form add-job-form">
+            <div class="progress"><div class="progress-bar"></div></div>
+            <div class="form-picture">
+                <button type="button" class="picture-btn">Choose a Picture</button>
+                <div class="picture-img">
+                    <img id="add-picture" src="" alt="">
+                </div>
+            </div>
             <div class="input">
                 <label>Company</label>
                 <input id="add-company" type="text">
@@ -124,11 +183,33 @@
             </div>
             <div class="input">
                 <label>Role</label>
-                <input id="add-role" type="text">
+                <div class="form-dropdown role">
+                    <h5 data-filter="Software-Engineer">Software Engineer</h5>
+                    <ul>
+                        <li data-filter="Software-Engineer">Software Engineer</li>
+                        <li data-filter="Frontend-Engineer">Frontend Engineer</li>
+                        <li data-filter="Blockchain-Engineer">Blockchain Engineer</li>
+                        <li data-filter="Backend-Engineer">Backend Engineer</li>
+                        <li data-filter="Machine-Learning-Engineer">Machine Learning Engineer</li>
+                        <li data-filter="Security-Engineer">Security Engineer</li>
+                        <li data-filter="Data-Scientist">Data Scientist</li>
+                        <li data-filter="Designer">Designer</li>
+                        <li data-filter="Product-Manage">Product Manager</li>
+                        <li data-filter="BizDev/Op">BizDev / Ops</li>
+                        <li data-filter="Intern">Intern</li>
+                    </ul>
+                </div>
             </div>
             <div class="input">
                 <label>Location</label>
-                <input id="add-location" type="text">
+                <div class="form-dropdown location">
+                    <h5 data-filter="SF-Bay-Area">SF Bay Area</h5>
+                    <ul>
+                        <li data-filter="SF-Bay-Area">SF Bay Area</li>
+                        <li data-filter="NYC">NYC</li>
+                        <li data-filter="Singapore">Singapore</li>
+                    </ul>
+                </div>
             </div>
             <div class="input">
                 <label>Remote</label>
@@ -145,19 +226,46 @@
             </div>
             <div class="input">
                 <label>Company Stage</label>
-                <input id="add-stage" type="text">
+                <div class="form-dropdown stage">
+                    <h5 data-filter="Seed">Seed</h5>
+                    <ul>
+                        <li data-filter="Seed">Seed</li>
+                        <li data-filter="Series-A">Series A</li>
+                        <li data-filter="Series-B">Series B</li>
+                        <li data-filter="Series-C">Series C</li>
+                        <li data-filter="Series-D+">Series D+</li>
+                    </ul>
+                </div>
             </div>
             <div class="input">
                 <label>Sector</label>
-                <input id="add-sector" type="text">
+                <div class="form-dropdown sector">
+                    <h5 data-filter="web3">Web3</h5>
+                    <ul>
+                        <li data-filter="Web3">Web3</li>
+                        <li data-filter="Fintech">Fintech</li>
+                        <li data-filter="AI/ML">AI/ML</li>
+                        <li data-filter="Consumer">Consumer</li>
+                        <li data-filter="SaaS">SaaS</li>
+                        <li data-filter="Hardware">Hardware</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="input" style="width: 100%;">
+                <label>Description</label>
+                <textarea id="add-description"></textarea>
             </div>
             <button type="submit">Add Job</button>
         </form>
     </div>
+    
+    <input type="file" class="picture-input" hidden>
 
 
     <script src="../assets/js/jquery.js"></script>
     <script src="main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-storage.js"></script>
 
     <script type="module">
 
@@ -186,6 +294,10 @@
         const database = getDatabase();
 
 
+        ////////////////////////////////////////////////
+        ////////////////// Checkboxes //////////////////
+        ////////////////////////////////////////////////
+
         var addRemote = 'Yes'
         $('.add-choice.no .checkbox').click(function() {
             addRemote = 'No'
@@ -194,42 +306,66 @@
             addRemote = 'Yes'
         })
 
+
+        /////////////////////////////////////////////////////////
+        ////////////////////// Add a Job ////////////////////////
+        /////////////////////////////////////////////////////////
+
         $('.add-job-form').submit(function(e) {
             e.preventDefault()
 
             var company = $('#add-company').val()
             var link = $('#add-link').val()
             var title = $('#add-title').val()
-            var role = $('#add-role').val()
-            var location = $('#add-location').val()
-            var stage = $('#add-stage').val()
-            var sector = $('#add-sector').val()
+            var role = $('.role h5').text()
+            var roleFilter = $('.role h5').attr('data-filter')
+            var location = $('.location h5').text()
+            var locationFilter = $('.location h5').attr('data-filter')
+            var stage = $('.stage h5').text()
+            var stageFilter = $('.stage h5').attr('data-filter')
+            var sector = $('.sector h5').text()
+            var sectorFilter = $('.sector h5').attr('data-filter')
+            var description = $('#add-description').val().replace(/\n/gm, ' <br> ')
+            var image = $('.picture-img img').attr('src')
 
             set(push(ref(database, 'jobs')), {
                 company: company,
                 link: link,
                 title: title,
                 role: role,
+                roleFilter: roleFilter,
                 location: location,
+                locationFilter: locationFilter,
                 remote: addRemote,
                 stage: stage,
+                stageFilter: stageFilter,
                 sector: sector,
+                sectorFilter: sectorFilter,
+                image: image,
+                description: description,
             })
 
             $('.popup').fadeOut()
         })
 
+
+        //////////////////////////////////////////////////////
+        //////////////////// Display Jobs ////////////////////
+        //////////////////////////////////////////////////////
+
         onChildAdded(ref(database, 'jobs'), (snapshot) => {
             $('table tbody').prepend(`
                 <tr data-key="${snapshot.key}">
+                    <td id="image" hidden>${snapshot.val().image}</td>
                     <td id="company">${snapshot.val().company}</td>
                     <td id="link"><a href="${snapshot.val().link}">${snapshot.val().link}</a></td>
                     <td id="title">${snapshot.val().title}</td>
-                    <td id="role">${snapshot.val().role}</td>
-                    <td id="location">${snapshot.val().location}</td>
+                    <td data-filter="${snapshot.val().roleFilter}" id="role">${snapshot.val().role}</td>
+                    <td data-filter="${snapshot.val().locationFilter}" id="location">${snapshot.val().location}</td>
                     <td id="remote">${snapshot.val().remote}</td>
-                    <td id="stage">${snapshot.val().stage}</td>
-                    <td id="sector">${snapshot.val().sector}</td>
+                    <td data-filter="${snapshot.val().stageFilter}" id="stage">${snapshot.val().stage}</td>
+                    <td data-filter="${snapshot.val().sectorFilter}" id="sector">${snapshot.val().sector}</td>
+                    <td id="description" hidden>${snapshot.val().description}</td>
                     <td class="actions">
                         <img class="edit-btn" src="../assets/icons/edit.png" alt="">
                         <img class="delete-btn" src="../assets/icons/delete.png" alt="">
@@ -238,15 +374,27 @@
             `)
         })
         
+
+
+        ///////////////////////////////////////////////////////
+        ////////////////////// Edit a job /////////////////////
+        ///////////////////////////////////////////////////////
+
         var key;
 
         var editRemote = 'Yes'
 
         $(document).on('click', '.edit-btn', function() {
             key = $(this).parents('tr').attr('data-key')
-            $(this).parents('tr').find('td').each(function() {
-                $('.edit-job-form #edit-' + $(this).attr('id')).val($(this).text())
-            })
+            $('.edit-role h5').text($(this).parents('tr').find('#role').text()).attr('data-filter', $(this).parents('tr').find('#role').attr('data-filter'))
+            $('.edit-location h5').text($(this).parents('tr').find('#location').text()).attr('data-filter', $(this).parents('tr').find('#location').attr('data-filter'))
+            $('.edit-stage h5').text($(this).parents('tr').find('#stage').text()).attr('data-filter', $(this).parents('tr').find('#stage').attr('data-filter'))
+            $('.edit-sector h5').text($(this).parents('tr').find('#sector').text()).attr('data-filter', $(this).parents('tr').find('#sector').attr('data-filter'))
+            $('#edit-company').val($(this).parents('tr').find('#company').text())
+            $('#edit-link').val($(this).parents('tr').find('#link').text())
+            $('#edit-title').val($(this).parents('tr').find('#title').text())
+            $('#edit-description').val($(this).parents('tr').find('#description').html().replace(/<br>/g, '\n'))
+            $('.edit-job-form .picture-img img').attr('src', $(this).parents('tr').find('#image').text())
             $('.edit-job-popup').fadeIn()
         })
 
@@ -264,22 +412,40 @@
             var company = $('#edit-company').val()
             var link = $('#edit-link').val()
             var title = $('#edit-title').val()
-            var role = $('#edit-role').val()
-            var location = $('#edit-location').val()
-            var stage = $('#edit-stage').val()
-            var sector = $('#edit-sector').val()
+            var role = $('.edit-role h5').text()
+            var roleFilter = $('.edit-role h5').attr('data-filter')
+            var location = $('.edit-location h5').text()
+            var locationFilter = $('.edit-location h5').attr('data-filter')
+            var stage = $('.edit-stage h5').text()
+            var stageFilter = $('.edit-stage h5').attr('data-filter')
+            var sector = $('.edit-sector h5').text()
+            var sectorFilter = $('.edit-sector h5').attr('data-filter')
+            var description = $('#edit-description').val().replace(/\n/gm, ' <br> ')
+            var image = $('.edit-job-form .picture-img img').attr('src')
 
             set(child(ref(database, 'jobs'), key), {
                 company: company,
                 link: link,
                 title: title,
                 role: role,
+                roleFilter: roleFilter,
                 location: location,
+                locationFilter: locationFilter,
                 remote: editRemote,
                 stage: stage,
+                stageFilter: stageFilter,
                 sector: sector,
+                sectorFilter: sectorFilter,
+                image: image,
+                description: description
             })
+
+            $('.edit-job-popup').fadeOut()
         })
+
+        ///////////////////////////////////////////////////////
+        //////////////////// Delete a Job /////////////////////
+        ///////////////////////////////////////////////////////
         
         $(document).on('click', '.delete-btn', function() {
             key = $(this).parents('tr').attr('data-key')
@@ -289,7 +455,45 @@
         })
 
 
-      </script>
+
+        //////////////////////////////////////////////////////////////////
+        /////////////////////// Uplaod Job Picture ///////////////////////
+        //////////////////////////////////////////////////////////////////
+
+        $('.picture-btn').click(function() {
+            $('.picture-input').click()
+        })
+
+        firebase.initializeApp(firebaseConfig);
+
+        $('.picture-input').change(function(e) {
+            var file = e.target.files[0]
+            const storageRef = firebase.storage().ref(file.name);
+            const task = storageRef.put(file);
+
+            task.on('state_changed', 
+                function progress(snapshot) {
+                    var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    $('.progress-bar').css('width', `${percentage}%`)
+                },
+                function error(err) {
+                        
+                },
+                function complete() {
+                    storageRef.getDownloadURL().then((url) => {
+                        $('.picture-img img').attr('src', url)
+                        $('.form-picture').addClass('active')
+                        $('.picture-img').show(500)
+                    })
+                }
+                
+            );
+        })
+        
+
+
+
+    </script>
 
 </body>
 </html>

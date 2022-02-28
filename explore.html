@@ -13,7 +13,7 @@
         <div class="nav-left">
             <a href="index.html"><img src="images/logo.png" alt=""></a>
             <form class="search-container">
-                <input type="text" class="search-input">
+                <input type="text" class="search-input" placeholder="Search...">
                 <button type="submit" class="search-btn"><img src="assets/icons/search.png" alt=""></button>
             </form>
         </div>
@@ -21,6 +21,7 @@
             <ul>
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a href="earn.html">Earn</a></li>
+                <li><a class="startups-link" href="#">For Startups</a></li>
                 <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
             </ul>
@@ -46,52 +47,52 @@
             <li class="filter">
                 <h4>Role <img src="assets/icons/down.png" alt=""></h4>
                 <ul>
-                    <li><a href="#">Software Engineer</a></li>
-                    <li><a href="#">Frontend Engineer</a></li>
-                    <li><a href="#">Blockchain Engineer</a></li>
-                    <li><a href="#">Backend Engineer</a></li>
-                    <li><a href="#">Machine Learning Engineer</a></li>
-                    <li><a href="#">Security Engineer</a></li>
-                    <li><a href="#">Data Scientist</a></li>
-                    <li><a href="#">Designer</a></li>
-                    <li><a href="#">Product Manager</a></li>
-                    <li><a href="#">BizDev / Ops</a></li>
-                    <li><a href="#">Intern</a></li>
+                    <li><a data-filter="Software-Engineer" href="#">Software Engineer</a></li>
+                    <li><a data-filter="Frontend-Engineer" href="#">Frontend Engineer</a></li>
+                    <li><a data-filter="Blockchain-Engineer" href="#">Blockchain Engineer</a></li>
+                    <li><a data-filter="Backend-Engineer" href="#">Backend Engineer</a></li>
+                    <li><a data-filter="Machine-Learning-Engineer" href="#">Machine Learning Engineer</a></li>
+                    <li><a data-filter="Security-Engineer" href="#">Security Engineer</a></li>
+                    <li><a data-filter="Data-Scientist" href="#">Data Scientist</a></li>
+                    <li><a data-filter="Designer" href="#">Designer</a></li>
+                    <li><a data-filter="Product-Manager" href="#">Product Manager</a></li>
+                    <li><a data-filter="BizDev/Ops" href="#">BizDev / Ops</a></li>
+                    <li><a data-filter="Intern" href="#">Intern</a></li>
                 </ul>
             </li>
             <li class="filter">
                 <h4>Company Stage <img src="assets/icons/down.png" alt=""></h4>
                 <ul>
-                    <li><a href="#">Seed</a></li>
-                    <li><a href="#">Series A</a></li>
-                    <li><a href="#">Series B</a></li>
-                    <li><a href="#">Series C</a></li>
-                    <li><a href="#">Series D+</a></li>
+                    <li><a data-filter="Seed" href="#">Seed</a></li>
+                    <li><a data-filter="Series-A" href="#">Series A</a></li>
+                    <li><a data-filter="Series-B" href="#">Series B</a></li>
+                    <li><a data-filter="Series-C" href="#">Series C</a></li>
+                    <li><a data-filter="Series-D+" href="#">Series D+</a></li>
                 </ul>
             </li>
             <li class="filter">
                 <h4>Sector <img src="assets/icons/down.png" alt=""></h4>
                 <ul>
-                    <li><a href="#">Web3</a></li>
-                    <li><a href="#">Fintech</a></li>
-                    <li><a href="#">AI/ML</a></li>
-                    <li><a href="#">Consumer</a></li>
-                    <li><a href="#">SaaS</a></li>
-                    <li><a href="#">Hardware</a></li>
+                    <li><a data-filter="Web3" href="#">Web3</a></li>
+                    <li><a data-filter="Fintech" href="#">Fintech</a></li>
+                    <li><a data-filter="AI/ML" href="#">AI/ML</a></li>
+                    <li><a data-filter="Consumer" href="#">Consumer</a></li>
+                    <li><a data-filter="SaaS" href="#">SaaS</a></li>
+                    <li><a data-filter="Hardware" href="#">Hardware</a></li>
                 </ul>
             </li>
             <li class="filter">
                 <h4>Location <img src="assets/icons/down.png" alt=""></h4>
                 <ul>
-                    <li><a href="#">SF Bay Area</a></li>
-                    <li><a href="#">NYC</a></li>
-                    <li><a href="#">Singapore</a></li>
+                    <li><a data-filter="SF-Bay-Area" href="#">SF Bay Area</a></li>
+                    <li><a data-filter="NYC" href="#">NYC</a></li>
+                    <li><a data-filter="Singapore" href="#">Singapore</a></li>
                 </ul>
             </li>
             <li class="filter-switch">
                 <h4>Remote</h4>
                 <input type="checkbox" hidden="hidden" id="username">
-                <label class="switch" for="username"></label>
+                <label data-remote="no" class="switch" for="username"></label>
             </li>
         </ul>
     </div>
@@ -223,7 +224,7 @@
     <!-- Calendy Widget -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/ihannouch7', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: true }); }</script>
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/ihannouch7', text: 'Get matched by an agent', color: '#0069ff', textColor: '#ffffff', branding: false }); }</script>
     <!-- Calendy Widget End -->
 
 
@@ -235,14 +236,26 @@
                 You need an invite code from an existing member to talk to an Expert.  <br>
                 <strong> Don’t have a code but interested in joining Moonhub & meeting to top startups? </strong> Email hello@moonhub.xyz with your resume or LI! 
             </p>
-            <form class="popup-input">
-                <input type="text">
+            <form class="popup-input" id="codeForm">
+                <input type="text" id="codeInput">
                 <button type="submit"><img src="assets/icons/right.png" alt=""></button>
             </form>
+            <h5 class="code-error">The Code is Incorrect.</h5>
+        </div>
+    </div>
+
+    <div class="popup-startups">
+        <div class="popup-overlay"></div>
+        <div class="popup-container">
+            <h3>Hire Top Talent</h3>
+            <p>
+                Moonhub represents the world's best <strong>engineers, product maagers, designers, </strong> etc in their job search. Email <strong>hello@moonhub.xyz</strong> to learn how you can start scaling your company with top-notch talent through Moonhub.
+            </p>
         </div>
     </div>
 
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/isotope.js"></script>
     <script src="main.js"></script>
 
 
@@ -251,7 +264,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
-        import { getDatabase, push, ref, set, onChildAdded, child, remove } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getDatabase, push, ref, set, onChildAdded, child, remove, onValue } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -306,10 +319,10 @@
 
         onChildAdded(ref(database, 'jobs'), (snapshot) => {
             $('.jobs-items').prepend(`
-                <div class="jobs-item">
+                <div data-remote="${snapshot.val().remote}" class="jobs-item ${snapshot.val().roleFilter} ${snapshot.val().locationFilter} ${snapshot.val().sectorFilter} ${snapshot.val().stageFilter}">
                     <div class="jobs-item-top">
                         <div class="job-profile">
-                            <img class="profile-img" src="images/job-profile.jpg" alt="">
+                            <img class="profile-img" src="${snapshot.val().image}" alt="">
                             <ul>
                                 <li class="profile-title">${snapshot.val().role}</li>
                                 <li class="profile-link">${snapshot.val().company} <a href="${snapshot.val().link}"> ${snapshot.val().link}</a></li>
@@ -321,15 +334,73 @@
                     </div>
                     <div class="jobs-item-bottom">
                         <h4>${snapshot.val().title}</h4>
-                        <ul>
-                            <li>Sequoia-backed  unicorn  company.  🦄  About  to  IPO.</li>
-                            <li>Role  is  on  Special  Projects  Team,  building  growth  /  marketing  automation  solutions.  </li>
-                            <li>Opportunity  to  incubate  new  products  within  an  established  company.  You  will  have  real  ownership  of  products.  The  company  is  open  to  spinning  out  the  products  into  new  ventures  and  companies.</li>
-                        </ul>
+                        <p>
+                            ${snapshot.val().description}
+                        </p>
                     </div>
                 </div>
             `)
         })
+        
+        
+        $('.filter a').click(function(e) {
+            e.preventDefault()
+
+            var key = $(this).attr('data-filter')
+            console.log(key)
+            $('.jobs-items').isotope({ filter: `.${key}` })
+        })
+
+        $('.switch').click(function() {
+            if ($(this).attr('data-remote') == 'no') {
+                $('.jobs-items').isotope({ filter: '.jobs-item[data-remote="Yes"]' })
+                $(this).attr('data-remote', 'yes')
+            } else {
+                $('.jobs-items').isotope({ filter: '.jobs-item[data-remote="No"]' })
+                $(this).attr('data-remote', 'no')
+            }
+        })
+
+
+        $('.search-container').submit(function(e) {
+            e.preventDefault()
+
+            var value = $(this).find('input').val().toLowerCase();
+            $(".jobs-item").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+                        
+
+        })
+
+
+        $('#codeForm').submit(function(e) {
+            e.preventDefault()
+            if ($('#codeInput').val() !== '') {
+                var id = $('#codeInput').val()
+                onValue(ref(database, 'emails'), (snapshot) => {
+                    if (snapshot.val().hasOwnProperty(id)) {
+                        $('.calendly-badge-content').click()
+                    } else {
+                        $('.code-error').fadeIn()
+                        setTimeout(() => {
+                            $('.code-error').fadeOut()
+                        }, 2000);
+                    }
+                })
+            } else {
+
+            }
+        })
+
+        if (localStorage.getItem('search') !== null) {
+            $('.search-container input').val(localStorage.getItem('search'))
+            localStorage.clear()
+        } else {
+            console.log('no')
+        }
+
+
 
 
       </script>

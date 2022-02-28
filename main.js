@@ -13,7 +13,7 @@ $(document).ready(function() {
         $('.mobile-menu, .explore-mobile-menu, .earn-mobile-menu').slideToggle(200)
     })
 
-    $('.popup, .popup-invite').hide()
+    $('.popup, .popup-invite, .popup-startups').hide()
     $(document).on('click', '.profile-btn, .talk', function(e) {
         e.preventDefault()
         $('.popup').fadeIn()
@@ -27,7 +27,16 @@ $(document).ready(function() {
         e.preventDefault()
         $('.popup-invite').fadeIn()
     })
+    
+    $('.startups-link').click(function(e) {
+        e.preventDefault()
+        $('.popup-startups').fadeIn()
+    })
 
+    $('.popup-startups .popup-overlay').click(function() {
+        $('.popup-startups').fadeOut()
+    })
+    
     $('.popup-invite .popup-overlay').click(function() {
         $('.popup-invite').fadeOut()
     })
