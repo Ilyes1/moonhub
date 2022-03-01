@@ -19,8 +19,9 @@
         </div>
         <div class="nav-right">
             <ul>
-                <li><a href="explore.html">Jobs</a></li>
+                <li><a class="active" href="explore.html">Jobs</a></li>
                 <li><a href="earn.html">Earn</a></li>
+                <li><a class="community-link" href="#">x(Community)</a></li>
                 <li><a class="startups-link" href="#">For Startups</a></li>
                 <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
@@ -38,6 +39,8 @@
             </li>
             <li><a href="explore.html">Jobs</a></li>
             <li><a href="#">Earn</a></li>
+            <li><a class="community-link" href="#">x(Community)</a></li>
+            <li><a class="startups-link" href="#">For Startups</a></li>
             <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
         </ul>
     </div>
@@ -116,86 +119,6 @@
 
             <div class="trending-container">
 
-                <div class="trending-item" style="background-image: url('images/exclusives.jpg');">
-                    <div class="exclusives-item-top">
-                        <h5>THIS JUST IN</h5>
-                        <a href="#" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                    </div>
-                    <div class="trending-item-bottom">
-                        <div class="trending-item-bottom-left">
-                            <h3>Software Engineer</h3>
-                            <h6>Verkada (Special Projects)</h6>
-                        </div>
-                        <div class="trending-item-bottom-right">
-                            <ul>
-                                <li>Remote</li>
-                                <li>Seed</li>
-                            </ul>
-                            <h6>Series</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="trending-item" style="background-image: url('images/exclusives.jpg');">
-                    <div class="exclusives-item-top">
-                        <h5>THIS JUST IN</h5>
-                        <a href="#" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                    </div>
-                    <div class="trending-item-bottom">
-                        <div class="trending-item-bottom-left">
-                            <h3>Software Engineer</h3>
-                            <h6>Verkada (Special Projects)</h6>
-                        </div>
-                        <div class="trending-item-bottom-right">
-                            <ul>
-                                <li>Remote</li>
-                                <li>Seed</li>
-                            </ul>
-                            <h6>Series</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="trending-item" style="background-image: url('images/exclusives.jpg');">
-                    <div class="exclusives-item-top">
-                        <h5>THIS JUST IN</h5>
-                        <a href="#" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                    </div>
-                    <div class="trending-item-bottom">
-                        <div class="trending-item-bottom-left">
-                            <h3>Software Engineer</h3>
-                            <h6>Verkada (Special Projects)</h6>
-                        </div>
-                        <div class="trending-item-bottom-right">
-                            <ul>
-                                <li>Remote</li>
-                                <li>Seed</li>
-                            </ul>
-                            <h6>Series</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="trending-item" style="background-image: url('images/exclusives.jpg');">
-                    <div class="exclusives-item-top">
-                        <h5>THIS JUST IN</h5>
-                        <a href="#" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                    </div>
-                    <div class="trending-item-bottom">
-                        <div class="trending-item-bottom-left">
-                            <h3>Software Engineer</h3>
-                            <h6>Verkada (Special Projects)</h6>
-                        </div>
-                        <div class="trending-item-bottom-right">
-                            <ul>
-                                <li>Remote</li>
-                                <li>Seed</li>
-                            </ul>
-                            <h6>Series</h6>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -251,6 +174,40 @@
             <p>
                 Moonhub represents the world's best <strong>engineers, product maagers, designers, </strong> etc in their job search. Email <strong>hello@moonhub.xyz</strong> to learn how you can start scaling your company with top-notch talent through Moonhub.
             </p>
+        </div>
+    </div>
+
+    <div class="popup-community">
+        <div class="popup-overlay"></div>
+        <div class="popup-container">
+            <h3>Moonhub x(Community)</h3>
+            <p>
+                We're partnering with the world's best <strong>tech forums, VCs, alumni groups, diversity initiatives, ++</strong> to match members to high-growth startup opportunities. Your group earns 1,000s $ every time someone finds a job on Moonhub with your <strong> x(Community) invite code. </strong> Eamil hello@moonhub.xyz to learn more and get started.
+            </p>
+        </div>
+    </div>
+    
+    <div class="popup-job">
+        <div class="popup-overlay"></div>
+        <div class="jobs-item popup-job-container">
+            <div class="jobs-item-top">
+                <div class="job-profile">
+                    <img class="profile-img job-popup-img" src="${snapshot.val().image}" alt="">
+                    <ul>
+                        <li class="profile-title job-popup-role">${snapshot.val().role}</li>
+                        <li class="profile-link"><span class="job-popup-company">${snapshot.val().company} </span> <a class="job-popup-company" href="${snapshot.val().link}"> ${snapshot.val().link}</a></li>
+                        <li><img src="assets/icons/cube.png" alt=""><span class="job-popup-stage"> ${snapshot.val().stage}</span></li>
+                        <li><img src="assets/icons/location.png" alt=""> Remote: <span class="job-popup-remote"> ${snapshot.val().remote}</span></li>
+                    </ul>
+                </div>
+                <a href="#" class="profile-btn">Talk to an Expert</a>
+            </div>
+            <div class="jobs-item-bottom">
+                <h4 class="job-popup-title">${snapshot.val().title}</h4>
+                <p class="job-popup-description">
+                    ${snapshot.val().description}
+                </p>
+            </div>
         </div>
     </div>
 
@@ -341,7 +298,62 @@
                 </div>
             `)
         })
+
+
+        onChildAdded(ref(database, 'jobs'), (snapshot) => {
+            if (snapshot.val().featured == 'Yes') {
+                $('.trending-container').prepend(`
+                    <div class="trending-item" style="background-image: url('${snapshot.val().image}');">
+                        <div class="exclusives-item-top">
+                            <h5>THIS JUST IN</h5>
+                            <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
+                        </div>
+                        <div class="exclusives-item-bottom">
+                            <div class="exclusives-item-bottom-left">
+                                <h3>${snapshot.val().role}</h3>
+                                <h6 data-link="${snapshot.val().link}">${snapshot.val().company}</h6>
+                            </div>
+                            <div class="exclusives-item-bottom-right">
+                                <ul>
+                                    <li>Remote: ${snapshot.val().remote}</li>
+                                    <li>${snapshot.val().stage}</li>
+                                </ul>
+                                <h6>Series</h6>
+                            </div>
+                        </div>
+                        <p class="trending-title" hidden>${snapshot.val().title}</p>
+                        <p class="trending-description" hidden>${snapshot.val().description}</p>
+                    </div>
+                `)
+            } else {
+                //
+            }
+        })
         
+
+        $(document).on('click', '.trending-item', function() {
+            var image = $(this).css('background-image').replace('url("', '').replace('")', '')
+            var role = $(this).find('.exclusives-item-bottom-left h3').text()
+            var company = $(this).find('.exclusives-item-bottom-left h6').text()
+            var link = $(this).find('.exclusives-item-bottom-left h6').attr('data-link')
+            var remote = $(this).find('.exclusives-item-bottom-right ul li:eq(0)').text()
+            var stage = $(this).find('.exclusives-item-bottom-right ul li:eq(1)').text()
+            var title = $(this).find('.trending-title').text()
+            var description = $(this).find('.trending-description').html()
+
+            $('.job-popup-img').attr('src', image)
+            $('.job-popup-link').attr('href', link).text(link)
+            $('.job-popup-company').text(company)
+            $('.job-popup-role').text(role)
+            $('.job-popup-remote').text(remote)
+            $('.job-popup-stage').text(stage)
+            $('.job-popup-title').text(title)
+            $('.job-popup-description').html(description)
+
+            $('.popup-job').fadeIn()
+        })
+
+
         
         $('.filter a').click(function(e) {
             e.preventDefault()
@@ -397,7 +409,7 @@
             $('.search-container input').val(localStorage.getItem('search'))
             localStorage.clear()
         } else {
-            console.log('no')
+            //
         }
 
 

@@ -5,7 +5,7 @@ $(document).ready(function() {
     })
 
     $('.checkbox').click(function() {
-        $('.checkbox-center').not($(this).find('.checkbox-center')).removeClass('active')
+        $(this).parents('.choices').find('.checkbox-center').not($(this).find('.checkbox-center')).removeClass('active')
         $(this).find('.checkbox-center').addClass('active')
     })
 

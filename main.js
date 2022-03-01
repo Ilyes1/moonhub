@@ -13,14 +13,14 @@ $(document).ready(function() {
         $('.mobile-menu, .explore-mobile-menu, .earn-mobile-menu').slideToggle(200)
     })
 
-    $('.popup, .popup-invite, .popup-startups').hide()
+    // $('.popup, .popup-invite, .popup-startups').hide()
     $(document).on('click', '.profile-btn, .talk', function(e) {
         e.preventDefault()
         $('.popup').fadeIn()
     })
 
-    $('.popup .popup-overlay').click(function() {
-        $('.popup').fadeOut()
+    $('.popup-overlay').click(function() {
+        $(this).parent().fadeOut()
     })
 
     $('.welcome-btn').click(function(e) {
@@ -32,13 +32,10 @@ $(document).ready(function() {
         e.preventDefault()
         $('.popup-startups').fadeIn()
     })
-
-    $('.popup-startups .popup-overlay').click(function() {
-        $('.popup-startups').fadeOut()
-    })
     
-    $('.popup-invite .popup-overlay').click(function() {
-        $('.popup-invite').fadeOut()
+    $('.community-link').click(function(e) {
+        e.preventDefault()
+        $('.popup-community').fadeIn()
     })
 
 

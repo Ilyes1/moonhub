@@ -256,12 +256,12 @@ tr:not(:last-child, .t-head) {
     padding: 10px;
 }
 
-.yes, .no {
+.yes, .no, .f-yes, .f-no {
     display: flex;
     align-items: center;
 }
 
-.no {
+.no, .f-no {
     margin-left: 10px;
 }
 
@@ -503,7 +503,6 @@ tr:not(:last-child, .t-head) {
 .form-dropdown li:hover {
     background-color: #eee;
 }
-
 
 
 

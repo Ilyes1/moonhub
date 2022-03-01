@@ -76,7 +76,7 @@
                 <label>Link</label>
                 <input id="edit-link" type="text">
             </div>
-            <div class="input">
+            <div class="input" style="width: 100%;">
                 <label>Title</label>
                 <input id="edit-title" type="text">
             </div>
@@ -120,6 +120,19 @@
                     <div class="edit-choice no">
                         <div class="checkbox"><div class="checkbox-center"></div></div>
                         No
+                    </div>
+                </div>
+            </div>
+            <div class="input">
+                <label>Featured</label>
+                <div class="choices">
+                    <div class="edit-choice f-yes">
+                        <div class="checkbox"><div class="checkbox-center active"></div></div>
+                        <span>Yes</span>
+                    </div>
+                    <div class="edit-choice f-no">
+                        <div class="checkbox"><div class="checkbox-center"></div></div>
+                        <span>No</span>
                     </div>
                 </div>
             </div>
@@ -177,7 +190,7 @@
                 <label>Link</label>
                 <input id="add-link" type="text">
             </div>
-            <div class="input">
+            <div class="input" style="width: 100%;">
                 <label>Title</label>
                 <input id="add-title" type="text">
             </div>
@@ -219,6 +232,19 @@
                         <span>Yes</span>
                     </div>
                     <div class="add-choice no">
+                        <div class="checkbox"><div class="checkbox-center"></div></div>
+                        <span>No</span>
+                    </div>
+                </div>
+            </div>
+            <div class="input">
+                <label>Featured</label>
+                <div class="choices">
+                    <div class="add-choice f-yes">
+                        <div class="checkbox"><div class="checkbox-center active"></div></div>
+                        <span>Yes</span>
+                    </div>
+                    <div class="add-choice f-no">
                         <div class="checkbox"><div class="checkbox-center"></div></div>
                         <span>No</span>
                     </div>
@@ -306,6 +332,14 @@
             addRemote = 'Yes'
         })
 
+        var addFeature = 'Yes'
+        $('.add-choice.f-no .checkbox').click(function() {
+            addFeature = 'No'
+        })
+        $('.add-choice.f-yes .checkbox').click(function() {
+            addFeature = 'Yes'
+        })
+
 
         /////////////////////////////////////////////////////////
         ////////////////////// Add a Job ////////////////////////
@@ -337,6 +371,7 @@
                 location: location,
                 locationFilter: locationFilter,
                 remote: addRemote,
+                featured: addFeature,
                 stage: stage,
                 stageFilter: stageFilter,
                 sector: sector,
@@ -382,7 +417,8 @@
 
         var key;
 
-        var editRemote = 'Yes'
+        var editRemote = 'Yes';
+        var editFeature = 'Yes';
 
         $(document).on('click', '.edit-btn', function() {
             key = $(this).parents('tr').attr('data-key')
@@ -404,6 +440,13 @@
         })
         $('.edit-choice.yes .checkbox').click(function() {
             editRemote = 'Yes'
+        })
+        
+        $('.edit-choice.f-no .checkbox').click(function() {
+            editFeature = 'No'
+        })
+        $('.edit-choice.f-yes .checkbox').click(function() {
+            editFeature = 'Yes'
         })
 
         $('.edit-job-form').submit(function(e) {
@@ -432,6 +475,7 @@
                 location: location,
                 locationFilter: locationFilter,
                 remote: editRemote,
+                featured: editFeature,
                 stage: stage,
                 stageFilter: stageFilter,
                 sector: sector,

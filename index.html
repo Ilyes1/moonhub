@@ -19,6 +19,7 @@
                 <ul>
                     <li><a href="explore.html">Jobs</a></li>
                     <li><a href="earn.html">Earn</a></li>
+                    <li><a class="community-link" href="#">x(Community)</a></li>
                     <li><a class="startups-link" href="#">For Startups</a></li>
                     <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
                     <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
@@ -30,6 +31,8 @@
             <ul>
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a href="earn.html">Earn</a></li>
+                <li><a class="community-link" href="#">x(Community)</a></li>
+                <li><a class="startups-link" href="#">For Startups</a></li>
                 <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
             </ul>
         </div>
@@ -128,45 +131,7 @@
                 </div>
             </div>
 
-            <div class="exclusives-item" style="background-image: url('images/exclusives.jpg');">
-                <div class="exclusives-item-top">
-                    <h5>THIS JUST IN</h5>
-                    <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                </div>
-                <div class="exclusives-item-bottom">
-                    <div class="exclusives-item-bottom-left">
-                        <h3>Software Engineer</h3>
-                        <h6>Verkada (Special Projects)</h6>
-                    </div>
-                    <div class="exclusives-item-bottom-right">
-                        <ul>
-                            <li>Remote</li>
-                            <li>Seed</li>
-                        </ul>
-                        <h6>Series</h6>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exclusives-item" style="background-image: url('images/exclusives.jpg');">
-                <div class="exclusives-item-top">
-                    <h5>THIS JUST IN</h5>
-                    <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                </div>
-                <div class="exclusives-item-bottom">
-                    <div class="exclusives-item-bottom-left">
-                        <h3>Software Engineer</h3>
-                        <h6>Verkada (Special Projects)</h6>
-                    </div>
-                    <div class="exclusives-item-bottom-right">
-                        <ul>
-                            <li>Remote</li>
-                            <li>Seed</li>
-                        </ul>
-                        <h6>Series</h6>
-                    </div>
-                </div>
-            </div>
+            <div style="width: 31%;"></div>
 
         </div>
 
@@ -180,14 +145,12 @@
         <div class="experts-left">
             <div class="experts-item" style="background-image: url('images/experts-1.jpg');">
                 <div class="experts-item-content">
-                    <h5>Nancy Xu, Moonhub Expert</h5>
-                    <h5>Founder @ Xu Ventures. Stanford CS Alum.</h5>
+                    <h5><strong>Nancy Xu</strong>, Moonhub Expert <br> Founder @ Xu Ventures. Stanford CS Alum.</h5>
                 </div>
             </div>
             <div class="experts-item" style="background-image: url('images/experts-2.jpg');">
-                <div class="experts-item-content">
-                    <h5>Nancy Xu, Moonhub Expert</h5>
-                    <h5>Founder @ Xu Ventures. Stanford CS Alum.</h5>
+                <div class="experts-item-content" style="text-align: right;">
+                    <h5><strong>Samir Sen</strong>, Moonhub Expert <br> Machine Learning Engineer @ Apple. Stanford CS.</h5>
                 </div>
             </div>
         </div>
@@ -328,6 +291,40 @@
         </div>
     </div>
 
+    <div class="popup-community">
+        <div class="popup-overlay"></div>
+        <div class="popup-container">
+            <h3>Moonhub x(Community)</h3>
+            <p>
+                We're partnering with the world's best <strong>tech forums, VCs, alumni groups, diversity initiatives, ++</strong> to match members to high-growth startup opportunities. Your group earns 1,000s $ every time someone finds a job on Moonhub with your <strong> x(Community) invite code. </strong> Eamil hello@moonhub.xyz to learn more and get started.
+            </p>
+        </div>
+    </div>
+
+    <div class="popup-job">
+        <div class="popup-overlay"></div>
+        <div class="jobs-item popup-job-container">
+            <div class="jobs-item-top">
+                <div class="job-profile">
+                    <img class="profile-img job-popup-img" src="${snapshot.val().image}" alt="">
+                    <ul>
+                        <li class="profile-title job-popup-role">${snapshot.val().role}</li>
+                        <li class="profile-link"><span class="job-popup-company">${snapshot.val().company} </span> <a class="job-popup-company" href="${snapshot.val().link}"> ${snapshot.val().link}</a></li>
+                        <li><img src="assets/icons/cube.png" alt=""><span class="job-popup-stage"> ${snapshot.val().stage}</span></li>
+                        <li><img src="assets/icons/location.png" alt=""> Remote: <span class="job-popup-remote"> ${snapshot.val().remote}</span></li>
+                    </ul>
+                </div>
+                <a href="#" class="profile-btn">Talk to an Expert</a>
+            </div>
+            <div class="jobs-item-bottom">
+                <h4 class="job-popup-title">${snapshot.val().title}</h4>
+                <p class="job-popup-description">
+                    ${snapshot.val().description}
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Calendy Widget -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
@@ -343,7 +340,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
-        import { getDatabase, onValue, ref } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getDatabase, onValue, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -363,6 +360,56 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const database = getDatabase();
+
+
+
+        onChildAdded(ref(database, 'jobs'), (snapshot) => {
+            $('.exclusives-container').prepend(`
+                <div class="exclusives-item" style="background-image: url('${snapshot.val().image}');">
+                    <div class="exclusives-item-top">
+                        <h5>THIS JUST IN</h5>
+                        <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
+                    </div>
+                    <div class="exclusives-item-bottom">
+                        <div class="exclusives-item-bottom-left">
+                            <h3>${snapshot.val().role}</h3>
+                            <h6 data-link="${snapshot.val().link}">${snapshot.val().company}</h6>
+                        </div>
+                        <div class="exclusives-item-bottom-right">
+                            <ul>
+                                <li>Remote: ${snapshot.val().remote}</li>
+                                <li>${snapshot.val().stage}</li>
+                            </ul>
+                            <h6>Series</h6>
+                        </div>
+                    </div>
+                    <p class="trending-title" hidden>${snapshot.val().title}</p>
+                    <p class="trending-description" hidden>${snapshot.val().description}</p>
+                </div>
+            `)
+        })
+
+        $(document).on('click', '.exclusives-item', function() {
+            var image = $(this).css('background-image').replace('url("', '').replace('")', '')
+            var role = $(this).find('.exclusives-item-bottom-left h3').text()
+            var company = $(this).find('.exclusives-item-bottom-left h6').text()
+            var link = $(this).find('.exclusives-item-bottom-left h6').attr('data-link')
+            var remote = $(this).find('.exclusives-item-bottom-right ul li:eq(0)').text()
+            var stage = $(this).find('.exclusives-item-bottom-right ul li:eq(1)').text()
+            var title = $(this).find('.trending-title').text()
+            var description = $(this).find('.trending-description').html()
+
+            $('.job-popup-img').attr('src', image)
+            $('.job-popup-link').attr('href', link).text(link)
+            $('.job-popup-company').text(company)
+            $('.job-popup-role').text(role)
+            $('.job-popup-remote').text(remote)
+            $('.job-popup-stage').text(stage)
+            $('.job-popup-title').text(title)
+            $('.job-popup-description').html(description)
+
+            $('.popup-job').fadeIn()
+        })
 
 
         $('#codeForm').submit(function(e) {
