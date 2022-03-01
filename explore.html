@@ -407,11 +407,21 @@
 
         if (localStorage.getItem('search') !== null) {
             $('.search-container input').val(localStorage.getItem('search'))
+                
             localStorage.clear()
         } else {
             //
         }
+        
+        onValue(ref(database, 'jobs'), (snapshot) => {
+            $('.search-container').submit()
+        })
 
+        // if ($('.search-container input').val() !== '') {
+        //     $('.search-container').submit()
+        // } else {
+
+        // }
 
 
 
