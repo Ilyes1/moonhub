@@ -381,6 +381,10 @@
             localStorage.setItem('search', $(this).find('input').val())
         })
 
+        $('.discover-item').click(function() {
+            localStorage.setItem('search', $(this).find('h4').text())
+        })
+
       </script>
 
 </body>
