@@ -24,6 +24,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a class="active" href="jobs.html">Jobs</a></li>
             <li><a href="emails.html">Emails</a></li>
+            <li><a href="companies.html">Companies</a></li>
         </ul>
 
     </div>
@@ -474,7 +475,7 @@
             var title = $('#edit-title').val()
             var role = $('.edit-role h5').text()
             var roleFilter = $('.edit-role h5').attr('data-filter')
-            var location = $('.edit-location h5').text()
+            var jLocation = $('.edit-location h5').text()
             var locationFilter = $('.edit-location h5').attr('data-filter')
             var stage = $('.edit-stage h5').text()
             var stageFilter = $('.edit-stage h5').attr('data-filter')
@@ -489,7 +490,7 @@
                 title: title,
                 role: role,
                 roleFilter: roleFilter,
-                location: location,
+                location: jLocation,
                 locationFilter: locationFilter,
                 remote: editRemote,
                 featured: editFeature,
@@ -501,7 +502,9 @@
                 description: description
             })
 
-            $('.edit-job-popup').fadeOut()
+            location.reload()
+
+            // $('.edit-job-popup').fadeOut()
         })
 
         ///////////////////////////////////////////////////////

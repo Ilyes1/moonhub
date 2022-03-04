@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <title>Moonhub Admin | Emails</title>
+    <title>Moonhub Admin | Strings</title>
 </head>
 <body>
 
@@ -23,27 +23,25 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="jobs.html">Jobs</a></li>
-            <li><a class="active" href="emails.html">Emails</a></li>
-            <li><a href="companies.html">Companies</a></li>
+            <li><a href="emails.html">Emails</a></li>
+            <li><a class="active" href="companies.html">Companies</a></li>
         </ul>
 
     </div>
 
     <div class="table">
 
-        <h1 class="table-title">Emails</h1>
+        <h1 class="table-title">Companies</h1>
 
-        <div class="add-email">
-            <button class="add-btn"> Add Email<img src="../assets/icons/plus.png" alt=""></button>
+        <div class="add-company">
+            <button class="add-btn"> Add Company<img src="../assets/icons/plus.png" alt=""></button>
         </div>
 
         <div class="table-container">
             <table>
                 <thead>
                     <tr class="t-head">
-                        <th>Email</th>
-                        <th>Code</th>
-                        <th>Wallet Count</th>
+                        <th>Company</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -54,33 +52,15 @@
 
     </div>
 
-    <div class="popup edit-wallet-popup">
-        <div class="popup-overlay"></div>
-        <form class="popup-form edit-wallet-form">
-            <div class="input" style="width: 100%;">
-                <label>Wallet Count</label>
-                <input id="edit-wallet" type="text">
-            </div>
-            <div class="input" style="width: 100%;">
-                <label>Invite Code</label>
-                <input id="edit-code" type="text">
-            </div>
-            <button type="submit">Save Changes</button>
-        </form>
-    </div>
 
     <div class="popup add-job-popup">
         <div class="popup-overlay"></div>
         <form class="popup-form add-job-form">
-            <div class="input">
-                <label>Email</label>
-                <input id="add-email" type="email">
+            <div class="input" style="width: 100%;">
+                <label>Company Name</label>
+                <input id="add-company" type="text">
             </div>
-            <div class="input">
-                <label>Wallet Count</label>
-                <input id="add-wallet" type="text">
-            </div>
-            <button type="submit">Add Email</button>
+            <button type="submit">Add Company</button>
         </form>
     </div>
 
@@ -115,14 +95,11 @@
         const database = getDatabase();
 
 
-        onChildAdded(ref(database, 'emails'), (snapshot) => {
+        onChildAdded(ref(database, 'companies'), (snapshot) => {
             $('table tbody').prepend(`
                 <tr data-key="${snapshot.key}">
-                    <td class="email">${snapshot.val().email}</td>
-                    <td class="code">${snapshot.val().code}</td>
-                    <td class="wallet-count">${snapshot.val().walletCount}</td>
+                    <td class="email">${snapshot.val().company}</td>
                     <td class="actions">
-                        <img class="edit-btn" src="../assets/icons/edit.png" alt="">
                         <img class="delete-btn" src="../assets/icons/delete.png" alt="">
                     </td>
                 </tr>
@@ -132,47 +109,21 @@
         $(document).on('click', '.delete-btn', function() {
             var key = $(this).parents('tr').attr('data-key')
 
-            remove(child(ref(database, 'emails'), key))
+            remove(child(ref(database, 'companies'), key))
             $(this).parents('tr').fadeOut()
         })
 
-        var key;
-        var email;
-        var code;
-        $(document).on('click', '.edit-btn', function() {
-            key = $(this).parents('tr').attr('data-key')
-            email = $(this).parents('tr').find('.email').text()
-            code = $(this).parents('tr').find('.code').text()
-            $('#edit-wallet').val($(this).parents('tr').find('.wallet-count').text())
-            $('#edit-code').val($(this).parents('tr').find('.code').text())
-            $('.edit-wallet-popup').fadeIn()
-        })
 
-        $('.edit-wallet-form').submit(function(e) {
-            e.preventDefault()
-            set(child(ref(database, 'emails'), key), {
-                email: email,
-                walletCount: $('#edit-wallet').val(),
-                code: $('#edit-code').val()
-            })
-            location.reload()
-        })
-
-        $('.add-email button').click(function() {
+        $('.add-company button').click(function() {
             $('.add-job-popup').fadeIn()
         })
 
         $('.add-job-form').submit(function(e) {
             e.preventDefault()
 
-            if ($('#add-email').val() !== '') {
-                var wallet = $('#add-wallet').val()
-                var emailKey = $('#add-email').val().replace('@','-').replace('.','-')
-                var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
-                set(child(ref(database, 'emails'), emailKey), {
-                    email: $('#add-email').val(),
-                    code: id,
-                    walletCount: wallet
+            if ($('#add-company').val() !== '') {
+                set(push(ref(database, 'companies')), {
+                    company: $('#add-company').val()
                 })
                 $('.add-job-popup').fadeOut()
             } else {

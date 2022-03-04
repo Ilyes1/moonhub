@@ -164,7 +164,7 @@
                 <a href="explore.html">Dandy</a>
             </div>
             <div class="opportunities-item">
-                <a href="explore.html">Runway ML</a>
+                <a href="explore.html">Footprint</a>
             </div>
             <div class="opportunities-item">
                 <a href="explore.html">You.com</a>
@@ -189,7 +189,7 @@
                 <li><a class="talk" href="#">Talk to an Expert</a></li>
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a class="contact-btn" href="#">Contact Us</a></li>
             </ul>
         </div>
         <div class="footer-right">
@@ -203,6 +203,17 @@
 
     </footer>
 
+    <div class="popup-contact">
+        <div class="popup-overlay"></div>
+        <div class="popup-container">
+            <form class="contact-form">
+                <input id="contactName" type="text" placeholder="Full Name">
+                <input id="contactEmail" type="email" placeholder="Email">
+                <textarea id="contactMessage" placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 
     <div class="popup">
         <div class="popup-overlay"></div>
@@ -302,29 +313,33 @@
 
 
         onChildAdded(ref(database, 'jobs'), (snapshot) => {
-            $('.exclusives-container').prepend(`
-                <div class="exclusives-item" style="background-image: url('${snapshot.val().image}');">
-                    <div class="exclusives-item-top">
-                        <h5>THIS JUST IN</h5>
-                        <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
-                    </div>
-                    <div class="exclusives-item-bottom">
-                        <div class="exclusives-item-bottom-left">
-                            <h3>${snapshot.val().role}</h3>
-                            <h6 data-link="${snapshot.val().link}">${snapshot.val().company}</h6>
+            if (snapshot.val().featured == 'Yes') {
+                $('.exclusives-container').prepend(`
+                    <div class="exclusives-item" style="background-image: url('${snapshot.val().image}');">
+                        <div class="exclusives-item-top">
+                            <h5>THIS JUST IN</h5>
+                            <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
                         </div>
-                        <div class="exclusives-item-bottom-right">
-                            <ul>
-                                <li>Remote: ${snapshot.val().remote}</li>
-                                <li>${snapshot.val().stage}</li>
-                            </ul>
-                            <h6>Series</h6>
+                        <div class="exclusives-item-bottom">
+                            <div class="exclusives-item-bottom-left">
+                                <h3>${snapshot.val().role}</h3>
+                                <h6 data-link="${snapshot.val().link}">${snapshot.val().company}</h6>
+                            </div>
+                            <div class="exclusives-item-bottom-right">
+                                <ul>
+                                    <li>Remote: ${snapshot.val().remote}</li>
+                                    <li>${snapshot.val().stage}</li>
+                                </ul>
+                                <h6>Series</h6>
+                            </div>
                         </div>
+                        <p class="trending-title" hidden>${snapshot.val().title}</p>
+                        <p class="trending-description" hidden>${snapshot.val().description}</p>
                     </div>
-                    <p class="trending-title" hidden>${snapshot.val().title}</p>
-                    <p class="trending-description" hidden>${snapshot.val().description}</p>
-                </div>
-            `)
+                `)
+            } else {
+
+            }
         })
 
         $(document).on('click', '.exclusives-item', function() {
@@ -430,10 +445,23 @@
         })
 
 
-        $('header').css('background-image', 'url("images/homeBackground.gif")')
+        onChildAdded(ref(database, 'companies'), (snapshot) => {
+            $('.opportunities-container').prepend(`
+                <div class="opportunities-item">
+                    <a href="explore.html">${snapshot.val().company}</a>
+                </div>
+            `)
+        })
 
 
-        $('.opportunities-item a').click(function() {
+        $('.contact-btn').click(function(e) {
+            e.preventDefault()
+
+            $('.popup-contact').fadeIn()
+        })
+
+
+        $(document).on('click', '.opportunities-item a', function() {
             localStorage.setItem('search', $(this).text())
         })
 

@@ -23,6 +23,7 @@
             <li><a class="active" href="index.html">Home</a></li>
             <li class="auth-link"><a href="jobs.html">Jobs</a></li>
             <li class="auth-link"><a href="emails.html">Emails</a></li>
+            <li class="auth-link"><a href="companies.html">Companies</a></li>
         </ul>
 
     </div>
@@ -156,7 +157,7 @@
                     displayName: fName + ' ' + lName
                 }).then(() => {
                     $('.auth-message').fadeIn().text(`Welcome ${user.displayName}`)
-                    if (user.uid == 'bVmbTOhx5iQ0yZgJElFhGOYXjjs2') {
+                    if (user.uid == 'hhqMMQ1IkeZNHAfW2eieU8jBq173' || user.uid == '9hLoEWge6Hb58qmvE4THlReNOMu1') {
                         $('.auth-link').fadeIn()
                     } else {
                         
@@ -188,7 +189,7 @@
                 setTimeout(() => {
                     $('.logout-form').fadeIn()
                 }, 300);
-                if (user.uid == 'bVmbTOhx5iQ0yZgJElFhGOYXjjs2') {
+                if (user.uid == 'hhqMMQ1IkeZNHAfW2eieU8jBq173' || user.uid == '9hLoEWge6Hb58qmvE4THlReNOMu1') {
                     $('.auth-link').fadeIn()
                 } else {
 
@@ -226,7 +227,7 @@
             $('.login-form, .signup-form').hide()
             $('.logout-form').show()
 
-            if (user.uid == 'bVmbTOhx5iQ0yZgJElFhGOYXjjs2') {
+            if (user.uid == 'hhqMMQ1IkeZNHAfW2eieU8jBq173' || user.uid == '9hLoEWge6Hb58qmvE4THlReNOMu1') {
                 $('.auth-link').fadeIn()
             } else {
                     

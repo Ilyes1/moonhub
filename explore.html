@@ -145,12 +145,16 @@
                 <li><a class="talk" href="#">Talk to an Expert</a></li>
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a class="contact-btn" href="#">Contact Us</a></li>
             </ul>
         </div>
         <div class="footer-right">
             <h2>Stay up to date with movements in Moonhub</h2>
-            <a href="#">Join Discord <img src="assets/icons/discord.png" alt=""></a>
+            <form class="popup-input" id="subscribeForm">
+                <input type="text" placeholder="Your Email" required>
+                <button type="submit">Join Mailing List</button>
+            </form>
+            <h3 class="subscribe-message">Your Email has been Added!</h3>
         </div>
 
     </footer>
@@ -162,6 +166,17 @@
     <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/moonhub', text: 'Talk to an Agent', color: '#009acb', textColor: '#ffffff', branding: true }); }</script>
     <!-- Calendly badge widget end -->
 
+    <div class="popup-contact">
+        <div class="popup-overlay"></div>
+        <div class="popup-container">
+            <form class="contact-form">
+                <input id="contactName" type="text" placeholder="Full Name">
+                <input id="contactEmail" type="email" placeholder="Email">
+                <textarea id="contactMessage" placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 
     <div class="popup">
         <div class="popup-overlay"></div>
@@ -572,6 +587,12 @@
             }
         })
 
+
+        $('.contact-btn').click(function(e) {
+            e.preventDefault()
+
+            $('.popup-contact').fadeIn()
+        })
 
 
       </script>
