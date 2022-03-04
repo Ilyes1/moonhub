@@ -22,7 +22,7 @@ section {
 header {
     width: 100%;
     height: 100vh;
-    background-image: url('images/homeBackground.jpg');
+    background-image: url('images/homeBackground.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -127,7 +127,7 @@ nav.active {
 .home-title {
     font-family: 'Times New Roman', Times, serif;
     font-size: 56px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-align: center;
     font-weight: 600;
 }
@@ -311,7 +311,11 @@ nav.active {
     align-items: center;
     justify-content: center;
     margin: 20px 0;
-    padding: 20px;
+    padding: 30px;
+}
+
+.exclusives-item-2-content h3 {
+    margin-top: 20px;
 }
 
 .exclusives-item-2-content a {
@@ -349,8 +353,17 @@ nav.active {
 .experts-left {
     width: 58%;
     height: 400px;
-    display: flex;
-    flex-wrap: wrap;
+    background-image: url('images/experts.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.experts-title {
+    background-color: #DCF7FF;
+    color: #009ACB;
+    width: fit-content;
+    padding: 10px 40px 10px 10px;
 }
 
 .experts-item {
@@ -376,16 +389,25 @@ nav.active {
 .experts-right {
     width: 40%;
     height: 400px;
-    background-color: #000;
+    background-color: #009ACB;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 50px;
+    padding: 70px 40px 70px 70px;
     color: #fff;
 }
 
+.experts-right-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .experts-right-content h1 {
-    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .experts-right-content h1 span {
@@ -398,7 +420,6 @@ nav.active {
     padding: 10px 20px;
     display: block;
     width: fit-content;
-    margin-top: 20px;
 }
 
 .discover .section-title {
@@ -554,7 +575,7 @@ footer h2 {
     padding: 10px;
 }
 
-.filter img {
+.filter h4 img {
     height: 10px;
     filter: invert(50%);
     margin-left: 10px;
@@ -591,12 +612,25 @@ footer h2 {
     background-color: #eee;
 }
 
+.filter ul img {
+    height: 10px;
+    margin-right: 5px;
+    opacity: 0;
+    transition: .5s;
+}
+
 .filter a {
     padding: 10px;
     color: #000;
     font-size: .8rem;
     display: block;
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.filter a.active img {
+    opacity: 1;
 }
 
 .filter-switch {
@@ -659,15 +693,16 @@ input:checked + .switch:active::before {
     width: 60%;
 }
 
-.jobs-title {
+.jobs-subtitle {
     margin-bottom: 20px;
+    color: #00A7DC;
 }
 
 .jobs-item {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 0 10px lightgray;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 30px;
     z-index: 2 !important;
 }
@@ -853,9 +888,9 @@ input:checked + .switch:active::before {
 .welcome-left {
     width: 49%;
     color: #fff;
-    background-color: #000;
-    padding: 50px;
-    height: 350px;
+    background-color: #009ACB;
+    padding: 50px 70px;
+    min-height: 350px;
     border-radius: 5px;
     display: flex;
     align-items: flex-start;
@@ -898,7 +933,7 @@ input:checked + .switch:active::before {
 
 .earn {
     padding: 100px;
-    background-color: #000;
+    background-color: #009ACB;
     color: #fff;
     margin: 20px auto;
     width: calc(100% - 80px);
@@ -1008,7 +1043,7 @@ input:checked + .switch:active::before {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #000;
+    background-color: #009ACB;
     color: #fff;
 }
 
@@ -1022,12 +1057,17 @@ input:checked + .switch:active::before {
     background-color: #fff;
 }
 
+.popup-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
 .popup-container h3 {
     margin-bottom: 20px;
 }
 
 .popup-container p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 30px;
 }
 
@@ -1035,7 +1075,30 @@ input:checked + .switch:active::before {
     width: 100%;
     height: 30px;
     display: flex;
-    margin-top: 20px;
+    margin: 20px 0;
+}
+
+#subscribeForm {
+    height: 40px;
+    margin: 10px 0;
+}
+
+#subscribeForm input {
+    color: #000;
+}
+
+#subscribeForm button {
+    height: 100%;
+    width: fit-content;
+    background-color: #009ACB;
+    padding: 0 10px;
+}
+
+.subscribe-message {
+    width: 100%;
+    color: #009ACB;
+    text-align: center;
+    display: none;
 }
 
 .popup-input input {
@@ -1064,11 +1127,14 @@ input:checked + .switch:active::before {
 
 
 .code-error {
-    width: 100%;
+    width: fit-content;
+    margin: auto;
     margin-top: 20px;
     text-align: center;
     color: tomato;
     display: none;
+    background-color: #ffffffc2;
+    padding: 10px 30px;
 }
 
 .gen-code {
@@ -1077,6 +1143,7 @@ input:checked + .switch:active::before {
     text-align: center;
     color: #00A7DC;
     display: none;
+    font-size: 1.4rem;
 }
 
 .calendly-badge-widget {

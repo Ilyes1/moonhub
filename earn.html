@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <title>Moonhub | Earn</title>
@@ -20,7 +21,7 @@
                 <li><a class="active" href="earn.html">Earn</a></li>
                 <li><a class="community-link" href="#">x(Community)</a></li>
                 <li><a class="startups-link" href="#">For Startups</a></li>
-                <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
+                <li class="blue-navlink"><a class="talk" href="#">Get Matched</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
             </ul>
         </div>
@@ -43,14 +44,14 @@
 
             <h2>Welcome to Moonhub <strong>Connectors!</strong></h2>
             <p>
-                Moonhub is an <strong> invite-only community</strong>. Give your friends your Invite Code so they can access Moonhub Experts & <strong> earn 10 Crescent Coins</strong> when they get hired through Moonhub! 
+                Give the gift of Moonhub. Mint an Invite Code to share with friends & earn 10 Crescent Coins every time someone uses your to get hired!
             </p>
             <a href="#" class="welcome-btn"><strong> Get Your Code</strong></a>
 
         </div>
 
         <div class="welcome-right">
-            <img src="images/welcome.jpg" alt="">
+            <img src="images/welcome.gif" alt="">
         </div>
 
     </section>
@@ -165,10 +166,10 @@
     <div class="popup-invite">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <h3>Your Invite Code</h3>
+            <h2><strong> Your </strong> Invite Code</h2>
             <p>Enter your email below to get your custom invite code sent via email!</p>
             <form class="popup-input" id="emailForm">
-                <input type="text" id="emailInput" required>
+                <input type="text" id="emailInput" placeholder="You Email" required>
                 <button type="submit"><img src="assets/icons/right.png" alt=""></button>
             </form>
             <h5 class="gen-code"></h5>
@@ -178,15 +179,17 @@
     <div class="popup">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <h3>Invite Code</h3>
+            <h2><strong>Invite </strong> Code</h2>
             <p>
-                You need an invite code from an existing member to talk to an Expert.  <br>
-                <strong> Don’t have a code but interested in joining Moonhub & meeting to top startups? </strong> Email hello@moonhub.xyz with your resume or LI! 
+                Were you <strong> referred </strong> to Moonhub? 
             </p>
             <form class="popup-input" id="codeForm">
-                <input type="text" id="codeInput">
+                <input type="text" id="codeInput" placeholder="Your invite code" required>
                 <button type="submit"><img src="assets/icons/right.png" alt=""></button>
             </form>
+            <p>
+                * Don’t have a code and want to join Moonhub? Go to ‘Earn’ and mint your own code.
+            </p>
             <h5 class="code-error">The Code is Incorrect.</h5>
         </div>
     </div>
@@ -194,28 +197,28 @@
     <div class="popup-startups">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <h3>Hire Top Talent</h3>
+            <h2><strong> Hire </strong> Top Talent</h2>
             <p>
                 Moonhub represents the world's best <strong>engineers, product maagers, designers, </strong> etc in their job search. Email <strong>hello@moonhub.xyz</strong> to learn how you can start scaling your company with top-notch talent through Moonhub.
             </p>
         </div>
     </div>
-    
+
     <div class="popup-community">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <h3>Moonhub x(Community)</h3>
+            <h2>Moonhub <strong> x(Community)</strong></h2>
             <p>
                 We're partnering with the world's best <strong>tech forums, VCs, alumni groups, diversity initiatives, ++</strong> to match members to high-growth startup opportunities. Your group earns 1,000s $ every time someone finds a job on Moonhub with your <strong> x(Community) invite code. </strong> Eamil hello@moonhub.xyz to learn more and get started.
             </p>
         </div>
     </div>
 
-    <!-- Calendy Widget -->
+    <!-- Calendly badge widget begin -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/ihannouch7', text: 'Get matched by an agent', color: '#0069ff', textColor: '#ffffff', branding: false }); }</script>
-    <!-- Calendy Widget End -->
+    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/moonhub', text: 'Talk to an Agent', color: '#009acb', textColor: '#ffffff', branding: true }); }</script>
+    <!-- Calendly badge widget end -->
 
     <script src="assets/js/jquery.js"></script>
     <script src="main.js"></script>
@@ -226,7 +229,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
-        import { getDatabase, push, ref, set, onChildAdded, child, remove, onValue } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getDatabase, push, ref, set, onChildAdded, child, remove, onValue, get, orderByChild, query, equalTo } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -249,41 +252,81 @@
 
         $('#emailForm').submit(function(e) {
             e.preventDefault()
+
             if ($('#emailInput').val() !== '') {
-                var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
-                console.log(id)
-                set(child(ref(database, 'emails'), id), {
-                    email: $('#emailInput').val(),
-                    walletCount: 0
+
+                var emailKey = $('#emailInput').val().replace('@','-').replace('.','-')
+                get(ref(database, 'emails')).then((snapshot) => {
+                    
+                    if (snapshot.exists() && snapshot.val().hasOwnProperty(emailKey)) {
+                        
+                        get(child(ref(database, 'emails'), emailKey)).then((snapshot) => {
+                            $('.gen-code').text(`You Code is: ${snapshot.val().code}`).fadeIn()
+                        })
+
+
+                    } else if (snapshot.exists() && snapshot.val().hasOwnProperty(emailKey) == false) {
+                        var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                        set(child(ref(database, 'emails'), emailKey), {
+                            email: $('#emailInput').val(),
+                            code: id,
+                            walletCount: 0
+                        })
+                        $('.gen-code').text(`You Code is: ${id}`).fadeIn()
+                    } else {
+                        var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                        set(child(ref(database, 'emails'), emailKey), {
+                            email: $('#emailInput').val(),
+                            code: id,
+                            walletCount: 0
+                        })
+                        $('.gen-code').text(`You Code is: ${id}`).fadeIn()
+                    }
                 })
-                Email.send({
-                    SecureToken : "b5feccf6-d31d-4057-891d-a7eb27058659",
-                    To : $('#emailInput').val(),
-                    From : "ihannouch2002@gmail.com",
-                    Subject : "Moonhub Code",
-                    Body : 'Your Code is ' + id
-                })
-                $('.gen-code').text(`You Code is: ${id}`).fadeIn()
+
             } else {
 
             }
         })
 
 
+
+        var emails;
+        get(ref(database, 'emails')).then((snapshot) => {
+            emails = snapshot
+        })
+
+
         $('#codeForm').submit(function(e) {
             e.preventDefault()
+            var exist = false
             if ($('#codeInput').val() !== '') {
                 var id = $('#codeInput').val()
-                onValue(ref(database, 'emails'), (snapshot) => {
-                    if (snapshot.val().hasOwnProperty(id)) {
-                        $('.calendly-badge-content').click()
+                $('.code-error').text('Checking...').fadeIn()
+
+                emails.forEach(email => {
+                    if (email.val().code == id) {
+                        exist = true
                     } else {
-                        $('.code-error').fadeIn()
+                        //
+                    }
+                });
+
+                setTimeout(() => {
+                    
+                    if (exist == false) {
+                        $('.code-error').text('Your Code is Incorrect')
                         setTimeout(() => {
                             $('.code-error').fadeOut()
                         }, 2000);
+                    } else {
+                        $('.calendly-badge-content').click()
+                        $('.code-error').fadeOut()
                     }
-                })
+
+                }, 1000);
+
+
             } else {
 
             }

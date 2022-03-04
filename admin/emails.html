@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <title>Moonhub Admin | Emails</title>
 </head>
@@ -55,6 +56,10 @@
                 <label>Wallet Count</label>
                 <input id="edit-wallet" type="text">
             </div>
+            <div class="input" style="width: 100%;">
+                <label>Invite Code</label>
+                <input id="edit-code" type="text">
+            </div>
             <button type="submit">Save Changes</button>
         </form>
     </div>
@@ -95,7 +100,7 @@
             $('table tbody').prepend(`
                 <tr data-key="${snapshot.key}">
                     <td class="email">${snapshot.val().email}</td>
-                    <td>${snapshot.key}</td>
+                    <td class="code">${snapshot.val().code}</td>
                     <td class="wallet-count">${snapshot.val().walletCount}</td>
                     <td class="actions">
                         <img class="edit-btn" src="../assets/icons/edit.png" alt="">
@@ -114,10 +119,13 @@
 
         var key;
         var email;
+        var code;
         $(document).on('click', '.edit-btn', function() {
             key = $(this).parents('tr').attr('data-key')
             email = $(this).parents('tr').find('.email').text()
+            code = $(this).parents('tr').find('.code').text()
             $('#edit-wallet').val($(this).parents('tr').find('.wallet-count').text())
+            $('#edit-code').val($(this).parents('tr').find('.code').text())
             $('.edit-wallet-popup').fadeIn()
         })
 
@@ -125,7 +133,8 @@
             e.preventDefault()
             set(child(ref(database, 'emails'), key), {
                 email: email,
-                walletCount: $('#edit-wallet').val()
+                walletCount: $('#edit-wallet').val(),
+                code: $('#edit-code').val()
             })
             location.reload()
         })
