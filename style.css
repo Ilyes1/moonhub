@@ -1071,6 +1071,10 @@ input:checked + .switch:active::before {
     line-height: 30px;
 }
 
+.c-blk {
+    color: #000;
+}
+
 .popup-input {
     width: 100%;
     height: 30px;
