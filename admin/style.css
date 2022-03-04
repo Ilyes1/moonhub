@@ -82,7 +82,7 @@ body {
     transition: .5s;
 }
 
-.add-job {
+.add-job, .add-email {
     width: 100%;
     display: flex;
     align-items: center;

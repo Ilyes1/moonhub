@@ -32,6 +32,10 @@
 
         <h1 class="table-title">Emails</h1>
 
+        <div class="add-email">
+            <button class="add-btn"> Add Email<img src="../assets/icons/plus.png" alt=""></button>
+        </div>
+
         <div class="table-container">
             <table>
                 <thead>
@@ -64,6 +68,20 @@
         </form>
     </div>
 
+    <div class="popup add-job-popup">
+        <div class="popup-overlay"></div>
+        <form class="popup-form add-job-form">
+            <div class="input">
+                <label>Email</label>
+                <input id="add-email" type="email">
+            </div>
+            <div class="input">
+                <label>Wallet Count</label>
+                <input id="add-wallet" type="text">
+            </div>
+            <button type="submit">Add Email</button>
+        </form>
+    </div>
 
 
     <script src="../assets/js/jquery.js"></script>
@@ -137,6 +155,28 @@
                 code: $('#edit-code').val()
             })
             location.reload()
+        })
+
+        $('.add-email button').click(function() {
+            $('.add-job-popup').fadeIn()
+        })
+
+        $('.add-job-form').submit(function(e) {
+            e.preventDefault()
+
+            if ($('#add-email').val() !== '') {
+                var wallet = $('#add-wallet').val()
+                var emailKey = $('#add-email').val().replace('@','-').replace('.','-')
+                var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                set(child(ref(database, 'emails'), emailKey), {
+                    email: $('#add-email').val(),
+                    code: id,
+                    walletCount: wallet
+                })
+                $('.add-job-popup').fadeOut()
+            } else {
+
+            }
         })
 
 
