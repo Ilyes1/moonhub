@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    setTimeout(() => {
+        $('.loading-animation').fadeOut(1000)
+    }, 1000)
+
     $(window).scroll(function() {
         if ($(this).scrollTop() > 60) {
             $('.home-nav, .mobile-menu').addClass('active')
@@ -43,6 +47,7 @@ $(document).ready(function() {
         $('.filter').not(this).find('ul').slideUp()
         $(this).find('ul').slideToggle(200)
     })
+
 
 
 })

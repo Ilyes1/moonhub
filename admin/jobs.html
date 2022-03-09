@@ -75,10 +75,14 @@
                 <input id="edit-company" type="text">
             </div>
             <div class="input">
+                <label>Tag</label>
+                <input id="edit-tag" type="text">
+            </div>
+            <div class="input">
                 <label>Link</label>
                 <input id="edit-link" type="text">
             </div>
-            <div class="input" style="width: 100%;">
+            <div class="input">
                 <label>Title</label>
                 <input id="edit-title" type="text">
             </div>
@@ -92,17 +96,19 @@
                         <li data-filter="Full-Stack-Engineer">Full-Stack Engineer</li>
                         <li data-filter="Blockchain-Engineer">Blockchain Engineer</li>
                         <li data-filter="Backend-Engineer">Backend Engineer</li>
+                        <li data-filter="Infrastructure-Engineer">Infrastructure Engineer</li>
                         <li data-filter="Machine-Learning-Engineer">Machine Learning Engineer</li>
                         <li data-filter="Security-Engineer">Security Engineer</li>
-                        <li data-filter="Data-Scientist">Data Scientist</li>
+                        <li data-filter="Data">Data</li>
                         <li data-filter="Product-Designer">Product Designer</li>
                         <li data-filter="Research">Research</li>
                         <li data-filter="Growth">Growth</li>
                         <li data-filter="Sales">Sales</li>
                         <li data-filter="Marketing">Marketing</li>
                         <li data-filter="Chief-of-Staff">Chief of Staff</li>
-                        <li data-filter="Product-Manage">Product Manager</li>
-                        <li data-filter="BizDev-Op">BizDev / Ops</li>
+                        <li data-filter="Product-Manager">Product Manager</li>
+                        <li data-filter="BizDev-Ops">BizDev / Ops</li>
+                        <li data-filter="Finance">Finance</li>
                         <li data-filter="Intern">Intern</li>
                     </ul>
                 </div>
@@ -170,6 +176,7 @@
                         <li data-filter="Consumer">Consumer</li>
                         <li data-filter="SaaS">SaaS</li>
                         <li data-filter="Hardware">Hardware</li>
+                        <li data-filter="Healthcare">Healthcare</li>
                     </ul>
                 </div>
             </div>
@@ -197,10 +204,14 @@
                 <input id="add-company" type="text">
             </div>
             <div class="input">
+                <label>Tag</label>
+                <input id="add-tag" type="text">
+            </div>
+            <div class="input">
                 <label>Link</label>
                 <input id="add-link" type="text">
             </div>
-            <div class="input" style="width: 100%;">
+            <div class="input">
                 <label>Title</label>
                 <input id="add-title" type="text">
             </div>
@@ -214,17 +225,19 @@
                         <li data-filter="Full-Stack-Engineer">Full-Stack Engineer</li>
                         <li data-filter="Blockchain-Engineer">Blockchain Engineer</li>
                         <li data-filter="Backend-Engineer">Backend Engineer</li>
+                        <li data-filter="Infrastructure-Engineer">Infrastructure Engineer</li>
                         <li data-filter="Machine-Learning-Engineer">Machine Learning Engineer</li>
                         <li data-filter="Security-Engineer">Security Engineer</li>
-                        <li data-filter="Data-Scientist">Data Scientist</li>
+                        <li data-filter="Data">Data</li>
                         <li data-filter="Product-Designer">Product Designer</li>
                         <li data-filter="Research">Research</li>
                         <li data-filter="Growth">Growth</li>
                         <li data-filter="Sales">Sales</li>
                         <li data-filter="Marketing">Marketing</li>
                         <li data-filter="Chief-of-Staff">Chief of Staff</li>
-                        <li data-filter="Product-Manage">Product Manager</li>
-                        <li data-filter="BizDev-Op">BizDev / Ops</li>
+                        <li data-filter="Product-Manager">Product Manager</li>
+                        <li data-filter="BizDev-Ops">BizDev / Ops</li>
+                        <li data-filter="Finance">Finance</li>
                         <li data-filter="Intern">Intern</li>
                     </ul>
                 </div>
@@ -292,6 +305,7 @@
                         <li data-filter="Consumer">Consumer</li>
                         <li data-filter="SaaS">SaaS</li>
                         <li data-filter="Hardware">Hardware</li>
+                        <li data-filter="Healthcare">Healthcare</li>
                     </ul>
                 </div>
             </div>
@@ -369,6 +383,7 @@
             var company = $('#add-company').val()
             var link = $('#add-link').val()
             var title = $('#add-title').val()
+            var tag = $('#add-tag').val()
             var role = $('.role h5').text()
             var roleFilter = $('.role h5').attr('data-filter')
             var location = $('.location h5').text()
@@ -384,6 +399,7 @@
                 company: company,
                 link: link,
                 title: title,
+                tag: tag,
                 role: role,
                 roleFilter: roleFilter,
                 location: location,
@@ -408,8 +424,9 @@
 
         onChildAdded(ref(database, 'jobs'), (snapshot) => {
             $('table tbody').prepend(`
-                <tr data-key="${snapshot.key}">
+                <tr data-key="${snapshot.key}" data-featured="${snapshot.val().featured}">
                     <td id="image" hidden>${snapshot.val().image}</td>
+                    <td id="tag" hidden>${snapshot.val().tag}</td>
                     <td id="company">${snapshot.val().company}</td>
                     <td id="link"><a href="${snapshot.val().link}">${snapshot.val().link}</a></td>
                     <td id="title">${snapshot.val().title}</td>
@@ -440,6 +457,8 @@
 
         $(document).on('click', '.edit-btn', function() {
             key = $(this).parents('tr').attr('data-key')
+            editFeature = $(this).parents('tr').attr('data-featured')
+            editRemote = $(this).parents('tr').find('#remote').text()
             $('.edit-role h5').text($(this).parents('tr').find('#role').text()).attr('data-filter', $(this).parents('tr').find('#role').attr('data-filter'))
             $('.edit-location h5').text($(this).parents('tr').find('#location').text()).attr('data-filter', $(this).parents('tr').find('#location').attr('data-filter'))
             $('.edit-stage h5').text($(this).parents('tr').find('#stage').text()).attr('data-filter', $(this).parents('tr').find('#stage').attr('data-filter'))
@@ -447,9 +466,15 @@
             $('#edit-company').val($(this).parents('tr').find('#company').text())
             $('#edit-link').val($(this).parents('tr').find('#link').text())
             $('#edit-title').val($(this).parents('tr').find('#title').text())
+            $('#edit-tag').val($(this).parents('tr').find('#tag').text())
             $('#edit-description').val($(this).parents('tr').find('#description').html().replace(/<br>/g, '\n'))
             $('.edit-job-form .picture-img img').attr('src', $(this).parents('tr').find('#image').text())
             $('.edit-job-popup').fadeIn()
+
+            $('.edit-choice .checkbox-center').removeClass('active')
+
+            $(`.edit-choice.f-${editFeature.toLowerCase()} .checkbox-center`).addClass('active')
+            $(`.edit-choice.${editRemote.toLowerCase()} .checkbox-center`).addClass('active')
         })
 
 
@@ -473,6 +498,7 @@
             var company = $('#edit-company').val()
             var link = $('#edit-link').val()
             var title = $('#edit-title').val()
+            var tag = $('#edit-tag').val()
             var role = $('.edit-role h5').text()
             var roleFilter = $('.edit-role h5').attr('data-filter')
             var jLocation = $('.edit-location h5').text()
@@ -488,6 +514,7 @@
                 company: company,
                 link: link,
                 title: title,
+                tag: tag,
                 role: role,
                 roleFilter: roleFilter,
                 location: jLocation,
@@ -502,9 +529,7 @@
                 description: description
             })
 
-            location.reload()
-
-            // $('.edit-job-popup').fadeOut()
+            $('.edit-job-popup').fadeOut()
         })
 
         ///////////////////////////////////////////////////////
@@ -552,7 +577,7 @@
                 
             );
         })
-        
+    
 
 
 

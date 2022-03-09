@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Yr7bjEWQskDUBCsEc");
+        })();
+    </script>
+
     <title>Moonhub | Explore Jobs</title>
 </head>
 <body>
@@ -23,7 +31,7 @@
                 <li><a class="active" href="explore.html">Jobs</a></li>
                 <li><a href="earn.html">Earn</a></li>
                 <li><a class="community-link" href="#">x(Community)</a></li>
-                <li><a class="startups-link" href="#">For Startups</a></li>
+                <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
                 <li class="blue-navlink"><a class="talk" href="#">Get Matched</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
             </ul>
@@ -41,7 +49,7 @@
             <li><a href="explore.html">Jobs</a></li>
             <li><a href="earn.html">Earn</a></li>
             <li><a class="community-link" href="#">x(Community)</a></li>
-            <li><a class="startups-link" href="#">For Startups</a></li>
+            <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
             <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
         </ul>
     </div>
@@ -56,9 +64,10 @@
                     <li><a data-filter="Full-Stack-Engineer" href="#"><img src="assets/icons/check.png" alt="">Full-Stack Engineer</a></li>
                     <li><a data-filter="Blockchain-Engineer" href="#"><img src="assets/icons/check.png" alt="">Blockchain Engineer</a></li>
                     <li><a data-filter="Backend-Engineer" href="#"><img src="assets/icons/check.png" alt="">Backend Engineer</a></li>
+                    <li><a data-filter="Infrastructure-Engineer" href="#"><img src="assets/icons/check.png" alt="">Infrastructure Engineer</a></li>
                     <li><a data-filter="Machine-Learning-Engineer" href="#"><img src="assets/icons/check.png" alt="">Machine Learning Engineer</a></li>
                     <li><a data-filter="Security-Engineer" href="#"><img src="assets/icons/check.png" alt="">Security Engineer</a></li>
-                    <li><a data-filter="Data-Scientist" href="#"><img src="assets/icons/check.png" alt="">Data</a></li>
+                    <li><a data-filter="Data" href="#"><img src="assets/icons/check.png" alt="">Data</a></li>
                     <li><a data-filter="Product-Designer" href="#"><img src="assets/icons/check.png" alt="">Designer</a></li>
                     <li><a data-filter="Research" href="#"><img src="assets/icons/check.png" alt="">Research</a></li>
                     <li><a data-filter="Growth" href="#"><img src="assets/icons/check.png" alt="">Growth</a></li>
@@ -67,6 +76,7 @@
                     <li><a data-filter="Chief-of-Staff" href="#"><img src="assets/icons/check.png" alt="">Chief of Staff</a></li>
                     <li><a data-filter="Product-Manager" href="#"><img src="assets/icons/check.png" alt="">Product Manager</a></li>
                     <li><a data-filter="BizDev-Ops" href="#"><img src="assets/icons/check.png" alt="">BizDev / Ops</a></li>
+                    <li><a data-filter="Finance" href="#"><img src="assets/icons/check.png" alt="">Finance</a></li>
                     <li><a data-filter="Intern" href="#"><img src="assets/icons/check.png" alt="">Intern</a></li>
                 </ul>
             </li>
@@ -89,6 +99,7 @@
                     <li><a data-filter="Consumer" href="#"><img src="assets/icons/check.png" alt="">Consumer</a></li>
                     <li><a data-filter="SaaS" href="#"><img src="assets/icons/check.png" alt="">SaaS</a></li>
                     <li><a data-filter="Hardware" href="#"><img src="assets/icons/check.png" alt="">Hardware</a></li>
+                    <li><a data-filter="Healthcare" href="#"><img src="assets/icons/check.png" alt="">Healthcare</a></li>
                 </ul>
             </li>
             <li class="filter">
@@ -160,20 +171,16 @@
     </footer>
 
 
-    <!-- Calendly badge widget begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/moonhub', text: 'Talk to an Agent', color: '#009acb', textColor: '#ffffff', branding: true }); }</script>
-    <!-- Calendly badge widget end -->
-
     <div class="popup-contact">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <form class="contact-form">
+            <h2>Contact the Moonhub Team</h2>
+            <form class="contact-form" id="contactForm">
                 <input id="contactName" type="text" placeholder="Full Name">
                 <input id="contactEmail" type="email" placeholder="Email">
                 <textarea id="contactMessage" placeholder="Message"></textarea>
                 <button type="submit">Send</button>
+                <h3 id="contactMsg">Message Sent.</h3>
             </form>
         </div>
     </div>
@@ -237,8 +244,22 @@
         </div>
     </div>
 
+
+    <div data-tf-popover="Rf1Q0KRO" data-tf-button-color="#009ACB"
+    data-tf-button-text="Launch me" data-tf-iframe-props="title=Registration Form"
+    data-tf-medium="snippet" style="all:unset;"></div>
+
+
+    <button class="typeform-btn" data-tf-popup="Rf1Q0KRO" data-tf-iframe-props="title=Registration Form"
+    data-tf-medium="snippet"
+    style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#009ACB;color:#FFFFFF;
+    font-size:15px;border-radius:18px;padding:0
+    25px;font-weight:bold;height:37.5px;cursor:pointer;line-height:37.5px;text-align:center;margin:0;text-decoration:none; display: none;">Get Introduced</button>
+
+
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/isotope.js"></script>
+    <script src="https://embed.typeform.com/next/embed.js"></script>
     <script src="main.js"></script>
 
 
@@ -332,7 +353,7 @@
                     <div class="trending-item" style="background-image: url('${snapshot.val().image}');">
                         <div class="exclusives-item-top">
                             <h5>THIS JUST IN</h5>
-                            <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
+                            <a href="explore.html" class="light-blue tag">${snapshot.val().tag}</a>
                         </div>
                         <div class="exclusives-item-bottom">
                             <div class="exclusives-item-bottom-left">
@@ -341,7 +362,7 @@
                             </div>
                             <div class="exclusives-item-bottom-right">
                                 <ul>
-                                    <li>Remote: ${snapshot.val().remote}</li>
+                                    <li>Remote: <span> ${snapshot.val().remote}</span></li>
                                     <li>${snapshot.val().stage}</li>
                                 </ul>
                                 <h6>Series</h6>
@@ -362,7 +383,7 @@
             var role = $(this).find('.exclusives-item-bottom-left h3').text()
             var company = $(this).find('.exclusives-item-bottom-left h6').text()
             var link = $(this).find('.exclusives-item-bottom-left h6').attr('data-link')
-            var remote = $(this).find('.exclusives-item-bottom-right ul li:eq(0)').text()
+            var remote = $(this).find('.exclusives-item-bottom-right ul li:eq(0) span').text()
             var stage = $(this).find('.exclusives-item-bottom-right ul li:eq(1)').text()
             var title = $(this).find('.trending-title').text()
             var description = $(this).find('.trending-description').html()
@@ -376,21 +397,28 @@
             $('.job-popup-title').text(title)
             $('.job-popup-description').html(description)
 
-            $('.popup-job').fadeIn()
+            $('.popup-job, .popup-job-container').fadeIn()
         })
 
 
 
         $('.search-container').submit(function(e) {
             e.preventDefault()
+            var value = $('.search-container input').val().toLowerCase();
 
-            var value = $(this).find('input').val().toLowerCase();
-            $(".jobs-item").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-                        
+
+            $('.jobs-item').hide()
+            $('.jobs-item').each(function() {
+                if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true' && $(this).text().indexOf(value) > -1) {
+                    $(this).show()
+                } else {
+
+                }
+            })
+            
 
         })
+
 
 
         $('#codeForm').submit(function(e) {
@@ -399,7 +427,7 @@
                 var id = $('#codeInput').val()
                 onChildAdded(ref(database, 'emails'), (snapshot) => {
                     if (snapshot.val().code == id) {
-                        $('.calendly-badge-content').click()
+                        $('.typeform-btn').click()
                     } else {
                         //
                     }
@@ -510,9 +538,11 @@
         $('.filter a').click(function(e) {
             e.preventDefault()
 
+            var value = $('.search-container input').val()
+
             $('.jobs-item').hide()
             $('.jobs-item').each(function() {
-                if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true') {
+                if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true' && $(this).text().indexOf(value) > -1) {
                     $(this).show()
                 } else {
 
@@ -522,10 +552,11 @@
 
 
         $('.switch').click(function() {
+            var value = $('.search-container input').val()
             if ($(this).attr('data-remote') == 'no') {
                 $('.jobs-item').hide()
                 $('.jobs-item').each(function() {
-                    if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true' && $(this).attr('data-remote') == 'Yes') {
+                    if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true' && $(this).attr('data-remote') == 'Yes' && $(this).text().indexOf(value) > -1) {
                         $(this).show()
                     } else {
 
@@ -535,7 +566,7 @@
             } else {
                 $('.jobs-item').hide()
                 $('.jobs-item').each(function() {
-                    if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true' && $(this).attr('data-remote') == 'No') {
+                    if ($(this).attr('role-filter') == 'true' && $(this).attr('stage-filter') == 'true' && $(this).attr('sector-filter') == 'true' && $(this).attr('location-filter') == 'true' && $(this).attr('data-remote') == 'No' && $(this).text().indexOf(value) > -1) {
                         $(this).show()
                     } else {
 
@@ -592,6 +623,29 @@
             e.preventDefault()
 
             $('.popup-contact').fadeIn()
+        })
+
+
+        $('#contactForm').submit(function(e) {
+            e.preventDefault()
+
+            var templateParams = {
+                name: $('#contactName').val(),
+                email: $('#contactEmail').val(),
+                message: $('#contactMessage').val()
+            };
+            
+            emailjs.send('service_ezlgjj4', 'template_bz22ss8', templateParams)
+                .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                $('#contactMsg').fadeIn()
+                setTimeout(() => {
+                    $('#contactMsg').fadeOut()
+                }, 2000);
+                }, function(error) {
+                console.log('FAILED...', error);
+                });
+
         })
 
 

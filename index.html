@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Yr7bjEWQskDUBCsEc");
+        })();
+    </script>
+
     <title>Moonhub | Home</title>
 </head>
 <body>
@@ -21,7 +29,8 @@
                     <li><a href="explore.html">Jobs</a></li>
                     <li><a href="earn.html">Earn</a></li>
                     <li><a class="community-link" href="#">x(Community)</a></li>
-                    <li><a class="startups-link" href="#">For Startups</a></li>
+                    <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
+                    </li>
                     <li class="blue-navlink"><a class="talk" href="#">Get Matched</a></li>
                     <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
                 </ul>
@@ -33,14 +42,15 @@
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a href="earn.html">Earn</a></li>
                 <li><a class="community-link" href="#">x(Community)</a></li>
-                <li><a class="startups-link" href="#">For Startups</a></li>
+                <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
                 <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
             </ul>
         </div>
 
         <div class="home">
 
-            <h1 class="home-title">Meet startups. Get hired.</h1>
+            <h1 class="home-title">Cut through the Noise..</h1>
+            <h2 class="home-subtitle">Get introduced to a shortlist of VC-vetted, high- <br> growth startups - curated for you.</h2>
 
             <div class="home-search-container">
                 <ul class="search-tabs">
@@ -60,7 +70,7 @@
 
     <section class="exclusives">
 
-        <h2 class="section-title">Moonhub Exclusives</h2>
+        <h2 class="section-title">Startups are hiring for...</h2>
         <h4 class="section-subtitle">Be the first to browse exclusive opportunitiies before they are filled.</h4>
 
         <div class="exclusives-container">
@@ -148,34 +158,6 @@
 
         <div class="opportunities-container">
 
-            <div class="opportunities-item">
-                <a href="explore.html">Verkada</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Chronos.fi</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Parafin</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Anthropic</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Dandy</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Footprint</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">You.com</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Lumos</a>
-            </div>
-            <div class="opportunities-item">
-                <a href="explore.html">Cresicor</a>
-            </div>
-
         </div>
 
     </section>
@@ -206,11 +188,13 @@
     <div class="popup-contact">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <form class="contact-form">
+            <h2>Contact the Moonhub Team</h2>
+            <form class="contact-form" id="contactForm">
                 <input id="contactName" type="text" placeholder="Full Name">
                 <input id="contactEmail" type="email" placeholder="Email">
                 <textarea id="contactMessage" placeholder="Message"></textarea>
                 <button type="submit">Send</button>
+                <h3 id="contactMsg">Message Sent.</h3>
             </form>
         </div>
     </div>
@@ -274,14 +258,75 @@
         </div>
     </div>
 
-    <!-- Calendly badge widget begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/moonhub', text: 'Talk to an Agent', color: '#009acb', textColor: '#ffffff', branding: true }); }</script>
-    <!-- Calendly badge widget end -->
     
 
+    <div data-tf-popover="Rf1Q0KRO" data-tf-button-color="#009ACB"
+    data-tf-button-text="Launch me" data-tf-iframe-props="title=Registration Form"
+    data-tf-medium="snippet" style="all:unset;"></div>
+
+
+    <button class="typeform-btn" data-tf-popup="Rf1Q0KRO" data-tf-iframe-props="title=Registration Form"
+    data-tf-medium="snippet"
+    style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#009ACB;color:#FFFFFF;
+    font-size:15px;border-radius:18px;padding:0
+    25px;font-weight:bold;height:37.5px;cursor:pointer;line-height:37.5px;text-align:center;margin:0;text-decoration:none; display: none;">Get Introduced</button>
+
+
+
+
+    <!-- animation -->
+    <div class="loading-animation">
+        <div class="roket-container">
+      
+            <div class="wing-left"></div>
+            <div class="wing-right"></div>
+            <div class="exhaust"></div>
+            
+            <div class="capsule">
+              <div class="top">
+                <div class="shadow"></div>
+              </div>
+              <div class="base"></div>
+            </div>
+            
+            <div class="window-big"></div>
+            <div class="window-small"></div>
+            
+            <div class="fire-1"></div>
+            <div class="fire-2"></div>
+            <div class="fire-3"></div>
+            <div class="fire-4"></div>
+            
+            
+            <div class="spark-2"></div>
+              <div class="spark-3"></div>
+              <div class="spark-4"></div>
+             
+              <div class="star star-1"></div>
+              <div class="star star-2"></div>
+              <div class="star star-3"></div>
+              <div class="star star-4"></div>
+              <div class="star star-5"></div>
+              <div class="star star-6"></div>
+              <div class="star star-7"></div>
+              <div class="star star-8"></div>
+              <div class="star star-9"></div>
+              <div class="star star-10"></div>
+              <div class="star star-11"></div>
+              <div class="star star-12"></div>
+              <div class="star star-13"></div>
+              <div class="star star-14"></div>
+              <div class="star star-15"></div>
+              <div class="star star-16"></div>
+            
+          </div>
+    </div>
+    <!-- animation -->
+
+
+
     <script src="assets/js/jquery.js"></script>
+    <script src="https://embed.typeform.com/next/embed.js"></script>
     <script src="main.js"></script>
     
     <script type="module">
@@ -289,7 +334,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
-        import { getDatabase, onValue, ref, onChildAdded, get, set, child } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getDatabase, onValue, ref, onChildAdded, get, set, child, onChildRemoved } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -311,14 +356,13 @@
         const database = getDatabase();
 
 
-
         onChildAdded(ref(database, 'jobs'), (snapshot) => {
             if (snapshot.val().featured == 'Yes') {
                 $('.exclusives-container').prepend(`
                     <div class="exclusives-item" style="background-image: url('${snapshot.val().image}');">
                         <div class="exclusives-item-top">
                             <h5>THIS JUST IN</h5>
-                            <a href="explore.html" class="light-blue">SPECIAL PROJECTS GROUP</a>
+                            <a href="explore.html" class="light-blue tag">${snapshot.val().tag}</a>
                         </div>
                         <div class="exclusives-item-bottom">
                             <div class="exclusives-item-bottom-left">
@@ -327,7 +371,7 @@
                             </div>
                             <div class="exclusives-item-bottom-right">
                                 <ul>
-                                    <li>Remote: ${snapshot.val().remote}</li>
+                                    <li>Remote: <span> ${snapshot.val().remote}</span></li>
                                     <li>${snapshot.val().stage}</li>
                                 </ul>
                                 <h6>Series</h6>
@@ -347,7 +391,7 @@
             var role = $(this).find('.exclusives-item-bottom-left h3').text()
             var company = $(this).find('.exclusives-item-bottom-left h6').text()
             var link = $(this).find('.exclusives-item-bottom-left h6').attr('data-link')
-            var remote = $(this).find('.exclusives-item-bottom-right ul li:eq(0)').text()
+            var remote = $(this).find('.exclusives-item-bottom-right ul li:eq(0) span').text()
             var stage = $(this).find('.exclusives-item-bottom-right ul li:eq(1)').text()
             var title = $(this).find('.trending-title').text()
             var description = $(this).find('.trending-description').html()
@@ -371,7 +415,7 @@
                 var id = $('#codeInput').val()
                 onChildAdded(ref(database, 'emails'), (snapshot) => {
                     if (snapshot.val().code == id) {
-                        $('.calendly-badge-content').click()
+                        $('.typeform-btn').click()
                     } else {
                         //
                     }
@@ -387,7 +431,7 @@
 
             if ($('#subscribeForm input').val() !== '') {
                 var emailKey = $('#subscribeForm input').val().replace('@','-').replace('.','-')
-                var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                var id = (Date.now().toString(36) + Math.random().toString(36).substr(2)).substring(13, 18);
                 set(child(ref(database, 'emails'), emailKey), {
                     email: $('#subscribeForm input').val(),
                     code: id,
@@ -397,10 +441,15 @@
                 setTimeout(() => {
                     $('.subscribe-message').fadeOut()
                 }, 2000);
+                $('#subscribeForm input').val('')
+                localStorage.setItem('code', id)
+                $('#codeInput').val(id)
             } else {
 
             }
         })
+
+
 
 
         var emails;
@@ -458,6 +507,29 @@
             e.preventDefault()
 
             $('.popup-contact').fadeIn()
+        })
+
+
+        $('#contactForm').submit(function(e) {
+            e.preventDefault()
+
+            var templateParams = {
+                name: $('#contactName').val(),
+                email: $('#contactEmail').val(),
+                message: $('#contactMessage').val()
+            };
+            
+            emailjs.send('service_ezlgjj4', 'template_bz22ss8', templateParams)
+                .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                $('#contactMsg').fadeIn()
+                setTimeout(() => {
+                    $('#contactMsg').fadeOut()
+                }, 2000);
+                }, function(error) {
+                console.log('FAILED...', error);
+                });
+            
         })
 
 

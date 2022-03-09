@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("Yr7bjEWQskDUBCsEc");
+        })();
+    </script>
+
     <title>Moonhub | Earn</title>
 </head>
 <body>
@@ -20,7 +27,7 @@
                 <li><a href="explore.html">Jobs</a></li>
                 <li><a class="active" href="earn.html">Earn</a></li>
                 <li><a class="community-link" href="#">x(Community)</a></li>
-                <li><a class="startups-link" href="#">For Startups</a></li>
+                <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
                 <li class="blue-navlink"><a class="talk" href="#">Get Matched</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
             </ul>
@@ -32,7 +39,7 @@
             <li><a href="explore.html">Jobs</a></li>
             <li><a href="earn.html">Earn</a></li>
             <li><a class="community-link" href="#">x(Community)</a></li>
-            <li><a class="startups-link" href="#">For Startups</a></li>
+            <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
             <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
         </ul>
     </div>
@@ -144,6 +151,26 @@
     </section>
 
 
+    <section class="check-balance">
+        
+        <div class="check-balance-left">
+            <h1>Check your <strong> Crescent balance.</strong></h1>
+            <div class="check-form-container">
+                <form class="popup-input" id="checkForm">
+                    <input type="email" placeholder="Your Email" id="checkInput" required>
+                    <button type="submit">Check Balance</button>
+                </form>
+                <h2 class="check-msg"></h2>
+            </div>
+        </div>
+        <div class="check-balance-right">
+            <h2>Your Balance</h2>
+            <h1><span id="balance">0</span> <img src="images/sybmol.png" alt=""></h1>
+        </div>
+
+    </section>
+
+
     <footer>
 
         <div class="footer-left">
@@ -173,7 +200,7 @@
             <h2><strong> Your </strong> Invite Code</h2>
             <p>Enter your email below to get your custom invite code sent via email!</p>
             <form class="popup-input" id="emailForm">
-                <input type="text" id="emailInput" placeholder="You Email" required>
+                <input type="text" id="emailInput" placeholder="your email" required>
                 <button type="submit"><img src="assets/icons/right.png" alt=""></button>
             </form>
             <h5 class="gen-code"></h5>
@@ -183,11 +210,13 @@
     <div class="popup-contact">
         <div class="popup-overlay"></div>
         <div class="popup-container">
-            <form class="contact-form">
+            <h2>Contact the Moonhub Team</h2>
+            <form class="contact-form" id="contactForm">
                 <input id="contactName" type="text" placeholder="Full Name">
                 <input id="contactEmail" type="email" placeholder="Email">
                 <textarea id="contactMessage" placeholder="Message"></textarea>
                 <button type="submit">Send</button>
+                <h3 id="contactMsg">Message Sent.</h3>
             </form>
         </div>
     </div>
@@ -227,13 +256,23 @@
         </div>
     </div>
 
-    <!-- Calendly badge widget begin -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/moonhub', text: 'Talk to an Agent', color: '#009acb', textColor: '#ffffff', branding: true }); }</script>
-    <!-- Calendly badge widget end -->
+
+
+
+    <div data-tf-popover="Rf1Q0KRO" data-tf-button-color="#009ACB"
+    data-tf-button-text="Launch me" data-tf-iframe-props="title=Registration Form"
+    data-tf-medium="snippet" style="all:unset;"></div>
+
+    <button class="typeform-btn" data-tf-popup="Rf1Q0KRO" data-tf-iframe-props="title=Registration Form"
+    data-tf-medium="snippet"
+    style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#009ACB;color:#FFFFFF;
+    font-size:15px;border-radius:18px;padding:0
+    25px;font-weight:bold;height:37.5px;cursor:pointer;line-height:37.5px;text-align:center;margin:0;text-decoration:none; display: none;">Get Introduced</button>
+
+
 
     <script src="assets/js/jquery.js"></script>
+    <script src="https://embed.typeform.com/next/embed.js"></script>
     <script src="main.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
@@ -263,6 +302,7 @@
         const analytics = getAnalytics(app);
         const database = getDatabase();
 
+
         $('#emailForm').submit(function(e) {
             e.preventDefault()
 
@@ -274,26 +314,32 @@
                     if (snapshot.exists() && snapshot.val().hasOwnProperty(emailKey)) {
                         
                         get(child(ref(database, 'emails'), emailKey)).then((snapshot) => {
-                            $('.gen-code').text(`You Code is: ${snapshot.val().code}`).fadeIn()
+                            $('.gen-code').text(`Your Code is: ${snapshot.val().code}`).fadeIn()
+                            localStorage.setItem('code', id)
+                            $('#codeInput').val(id)
                         })
 
 
                     } else if (snapshot.exists() && snapshot.val().hasOwnProperty(emailKey) == false) {
-                        var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                        var id = (Date.now().toString(36) + Math.random().toString(36).substr(2)).substring(13, 18);
                         set(child(ref(database, 'emails'), emailKey), {
                             email: $('#emailInput').val(),
                             code: id,
                             walletCount: 0
                         })
-                        $('.gen-code').text(`You Code is: ${id}`).fadeIn()
+                        $('.gen-code').text(`Your Code is: ${id}`).fadeIn()
+                        localStorage.setItem('code', id)
+                        $('#codeInput').val(id)
                     } else {
-                        var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+                        var id = (Date.now().toString(36) + Math.random().toString(36).substr(2)).substring(13, 18);
                         set(child(ref(database, 'emails'), emailKey), {
                             email: $('#emailInput').val(),
                             code: id,
                             walletCount: 0
                         })
-                        $('.gen-code').text(`You Code is: ${id}`).fadeIn()
+                        $('.gen-code').text(`Your Code is: ${id}`).fadeIn()
+                        localStorage.setItem('code', id)
+                        $('#codeInput').val(id)
                     }
                 })
 
@@ -301,6 +347,7 @@
 
             }
         })
+
 
 
 
@@ -333,11 +380,32 @@
                             $('.code-error').fadeOut()
                         }, 2000);
                     } else {
-                        $('.calendly-badge-content').click()
+                        $('.typeform-btn').click()
                         $('.code-error').fadeOut()
                     }
 
                 }, 1000);
+
+
+            } else {
+
+            }
+        })
+
+        $('#checkForm').submit(function(e) {
+            e.preventDefault()
+            var exist = false
+            var ee = $('#checkInput').val().replace('@', '-').replace('.', '-')
+            if ($('#checkInput').val() !== '') {
+
+                get(child(ref(database, 'emails'), ee)).then((snapshot) => {
+                    $('#balance').text(snapshot.val().walletCount)
+                }).catch(() => {
+                    $('.check-msg').text('This Email doesn\'t exist').fadeIn()
+                    setTimeout(() => {
+                        $('.check-msg').fadeOut()
+                    }, 2000);
+                })
 
 
             } else {
@@ -350,6 +418,29 @@
             e.preventDefault()
 
             $('.popup-contact').fadeIn()
+        })
+
+
+        $('#contactForm').submit(function(e) {
+            e.preventDefault()
+
+            var templateParams = {
+                name: $('#contactName').val(),
+                email: $('#contactEmail').val(),
+                message: $('#contactMessage').val()
+            };
+            
+            emailjs.send('service_ezlgjj4', 'template_bz22ss8', templateParams)
+                .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                $('#contactMsg').fadeIn()
+                setTimeout(() => {
+                    $('#contactMsg').fadeOut()
+                }, 2000);
+                }, function(error) {
+                console.log('FAILED...', error);
+                });
+
         })
 
 

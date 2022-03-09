@@ -107,6 +107,12 @@ body {
     margin-left: 5px;
 }
 
+.email-message {
+    width: 100%;
+    text-align: center;
+    display: none;
+}
+
 .table-container {
     width: 100%;
     overflow-x: scroll;
