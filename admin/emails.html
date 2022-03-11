@@ -194,7 +194,7 @@
 
             if ($('#add-email').val() !== '') {
                 var wallet = $('#add-wallet').val()
-                var emailKey = $('#add-email').val().replace('@','-').replace('.','-')
+                var emailKey = $('#add-email').val().replace(/@|\.|#|\$|\[|]/g,'-')
                 var id = Date.now().toString(36) + Math.random().toString(36).substr(2);
                 set(child(ref(database, 'emails'), emailKey), {
                     email: $('#add-email').val(),

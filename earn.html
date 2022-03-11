@@ -308,39 +308,17 @@
 
             if ($('#emailInput').val() !== '') {
 
-                var emailKey = $('#emailInput').val().replace('@','-').replace('.','-')
-                get(ref(database, 'emails')).then((snapshot) => {
-                    
-                    if (snapshot.exists() && snapshot.val().hasOwnProperty(emailKey)) {
-                        
-                        get(child(ref(database, 'emails'), emailKey)).then((snapshot) => {
-                            $('.gen-code').text(`Your Code is: ${snapshot.val().code}`).fadeIn()
-                            localStorage.setItem('code', id)
-                            $('#codeInput').val(id)
-                        })
-
-
-                    } else if (snapshot.exists() && snapshot.val().hasOwnProperty(emailKey) == false) {
-                        var id = (Date.now().toString(36) + Math.random().toString(36).substr(2)).substring(13, 18);
-                        set(child(ref(database, 'emails'), emailKey), {
-                            email: $('#emailInput').val(),
-                            code: id,
-                            walletCount: 0
-                        })
-                        $('.gen-code').text(`Your Code is: ${id}`).fadeIn()
-                        localStorage.setItem('code', id)
-                        $('#codeInput').val(id)
-                    } else {
-                        var id = (Date.now().toString(36) + Math.random().toString(36).substr(2)).substring(13, 18);
-                        set(child(ref(database, 'emails'), emailKey), {
-                            email: $('#emailInput').val(),
-                            code: id,
-                            walletCount: 0
-                        })
-                        $('.gen-code').text(`Your Code is: ${id}`).fadeIn()
-                        localStorage.setItem('code', id)
-                        $('#codeInput').val(id)
-                    }
+                var emailKey = $('#emailInput').val().replace(/@|\.|#|\$|\[|]/g,'-')
+                get(child(ref(database, 'emails'), emailKey)).then((snapshot) => {
+                    $('.gen-code').text(`Your Code is: ${snapshot.val().code}`).fadeIn()
+                }).catch((err) => {
+                    var id = (Date.now().toString(36) + Math.random().toString(36).substr(2)).substring(13, 18);
+                    set(child(ref(database, 'emails'), emailKey), {
+                        email: $('#emailInput').val(),
+                        code: id,
+                        walletCount: 0
+                    })
+                    $('.gen-code').text(`Your Code is: ${id}`).fadeIn()
                 })
 
             } else {
