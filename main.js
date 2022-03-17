@@ -32,10 +32,10 @@ $(document).ready(function() {
         $('.popup-invite').fadeIn()
     })
     
-    $('.startups-link').click(function(e) {
-        e.preventDefault()
-        $('.popup-startups').fadeIn()
-    })
+    // $('.startups-link').click(function(e) {
+    //     e.preventDefault()
+    //     $('.popup-startups').fadeIn()
+    // })
     
     $('.community-link').click(function(e) {
         e.preventDefault()
@@ -48,6 +48,8 @@ $(document).ready(function() {
         $(this).find('ul').slideToggle(200)
     })
 
+    $('#startupBtn')[0].click()
+        
 
 
 })
