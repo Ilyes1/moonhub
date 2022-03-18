@@ -30,6 +30,12 @@ header {
     margin-bottom: 20px;
 }
 
+/* #stanfordHome {
+    background-image: url('images/stanford-bg.jpg');
+    background-blend-mode: darken;
+    background-color: #00000071;
+} */
+
 nav {
     width: 100%;
     display: flex;
@@ -138,6 +144,11 @@ nav.active {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.stanford-text {
+    font-weight: 1000;
+    color: #00A7DC;
 }
 
 .home-title {

@@ -22,10 +22,10 @@
 
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="jobs.html">Jobs</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
             <li><a href="emails.html">Emails</a></li>
             <li><a href="companies.html">Companies</a></li>
-            <li><a href="stanford.html">Stanford</a></li>
+            <li><a class="active" href="stanford.html">Stanford</a></li>
         </ul>
 
     </div>
@@ -137,19 +137,6 @@
                     <div class="edit-choice no">
                         <div class="checkbox"><div class="checkbox-center"></div></div>
                         No
-                    </div>
-                </div>
-            </div>
-            <div class="input">
-                <label>Featured</label>
-                <div class="choices">
-                    <div class="edit-choice f-yes">
-                        <div class="checkbox"><div class="checkbox-center active"></div></div>
-                        <span>Yes</span>
-                    </div>
-                    <div class="edit-choice f-no">
-                        <div class="checkbox"><div class="checkbox-center"></div></div>
-                        <span>No</span>
                     </div>
                 </div>
             </div>
@@ -270,19 +257,6 @@
                 </div>
             </div>
             <div class="input">
-                <label>Featured</label>
-                <div class="choices">
-                    <div class="add-choice f-yes">
-                        <div class="checkbox"><div class="checkbox-center active"></div></div>
-                        <span>Yes</span>
-                    </div>
-                    <div class="add-choice f-no">
-                        <div class="checkbox"><div class="checkbox-center"></div></div>
-                        <span>No</span>
-                    </div>
-                </div>
-            </div>
-            <div class="input">
                 <label>Company Stage</label>
                 <div class="form-dropdown stage">
                     <h5 data-filter="Seed">Seed</h5>
@@ -365,13 +339,6 @@
             addRemote = 'Yes'
         })
 
-        var addFeature = 'Yes'
-        $('.add-choice.f-no .checkbox').click(function() {
-            addFeature = 'No'
-        })
-        $('.add-choice.f-yes .checkbox').click(function() {
-            addFeature = 'Yes'
-        })
 
 
         /////////////////////////////////////////////////////////
@@ -396,7 +363,7 @@
             var description = $('#add-description').val().replace(/\n/gm, ' <br> ')
             var image = $('.picture-img img').attr('src')
 
-            set(push(ref(database, 'jobs')), {
+            set(push(ref(database, 'stanford')), {
                 company: company,
                 link: link,
                 title: title,
@@ -406,7 +373,6 @@
                 location: location,
                 locationFilter: locationFilter,
                 remote: addRemote,
-                featured: addFeature,
                 stage: stage,
                 stageFilter: stageFilter,
                 sector: sector,
@@ -423,7 +389,7 @@
         //////////////////// Display Jobs ////////////////////
         //////////////////////////////////////////////////////
 
-        onChildAdded(ref(database, 'jobs'), (snapshot) => {
+        onChildAdded(ref(database, 'stanford'), (snapshot) => {
             $('table tbody').prepend(`
                 <tr data-key="${snapshot.key}" data-featured="${snapshot.val().featured}">
                     <td id="image" hidden>${snapshot.val().image}</td>
@@ -454,11 +420,9 @@
         var key;
 
         var editRemote = 'Yes';
-        var editFeature = 'Yes';
 
         $(document).on('click', '.edit-btn', function() {
             key = $(this).parents('tr').attr('data-key')
-            editFeature = $(this).parents('tr').attr('data-featured')
             editRemote = $(this).parents('tr').find('#remote').text()
             $('.edit-role h5').text($(this).parents('tr').find('#role').text()).attr('data-filter', $(this).parents('tr').find('#role').attr('data-filter'))
             $('.edit-location h5').text($(this).parents('tr').find('#location').text()).attr('data-filter', $(this).parents('tr').find('#location').attr('data-filter'))
@@ -474,7 +438,6 @@
 
             $('.edit-choice .checkbox-center').removeClass('active')
 
-            $(`.edit-choice.f-${editFeature.toLowerCase()} .checkbox-center`).addClass('active')
             $(`.edit-choice.${editRemote.toLowerCase()} .checkbox-center`).addClass('active')
         })
 
@@ -485,13 +448,7 @@
         $('.edit-choice.yes .checkbox').click(function() {
             editRemote = 'Yes'
         })
-        
-        $('.edit-choice.f-no .checkbox').click(function() {
-            editFeature = 'No'
-        })
-        $('.edit-choice.f-yes .checkbox').click(function() {
-            editFeature = 'Yes'
-        })
+ 
 
         $('.edit-job-form').submit(function(e) {
             e.preventDefault()
@@ -511,7 +468,7 @@
             var description = $('#edit-description').val().replace(/\n/gm, ' <br> ')
             var image = $('.edit-job-form .picture-img img').attr('src')
 
-            set(child(ref(database, 'jobs'), key), {
+            set(child(ref(database, 'stanford'), key), {
                 company: company,
                 link: link,
                 title: title,
@@ -521,7 +478,6 @@
                 location: jLocation,
                 locationFilter: locationFilter,
                 remote: editRemote,
-                featured: editFeature,
                 stage: stage,
                 stageFilter: stageFilter,
                 sector: sector,
@@ -540,7 +496,7 @@
         $(document).on('click', '.delete-btn', function() {
             key = $(this).parents('tr').attr('data-key')
 
-            remove(child(ref(database, 'jobs'), key))
+            remove(child(ref(database, 'stanford'), key))
             $(this).parents('tr').fadeOut()
         })
 

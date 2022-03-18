@@ -14,11 +14,11 @@
         })();
     </script>
 
-    <title>Moonhub | Startups</title>
+    <title>Moonhub | Stanford</title>
 </head>
 <body>
     
-    <header>
+    <header id="stanfordHome">
 
         <nav class="home-nav">
             <div class="nav-left">
@@ -42,17 +42,17 @@
                 <li><a href="../explore.html">Jobs</a></li>
                 <li><a href="../earn.html">Earn</a></li>
                 <li><a class="community-link" href="#">x(Community)</a></li>
-                <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet" id="startupBtn">For Startups</a>
+                <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
                 <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
             </ul>
         </div>
 
-        <div class="home">
+        <div class="home stanford-home">
 
             <div class="home-container">
                 <div class="home-titles">
-                    <h1 class="home-title">Cut through the Noise.</h1>
-                    <h2 class="home-subtitle">Get introduced to a shortlist of VC-vetted, <br> high-growth startups: curated for you.</h2>
+                    <h1 class="home-title">Moonhub x Stanford Alums</h1>
+                    <h2 class="home-subtitle">Get introduced to a shortlist of VC-vetted, high-growth <br> startups: curated for you. Use Code: <span class="stanford-text"> stanford-alum</span>.</h2>
                 </div>
     
                 <div class="home-search-container">
@@ -74,7 +74,7 @@
 
     <section class="exclusives">
 
-        <h2 class="section-title">Startups are hiring for...</h2>
+        <h2 class="section-title">Startups in the Stanford community are hiring for…</h2>
         <h4 class="section-subtitle">Be the first to browse exclusive opportunitiies before they are filled.</h4>
 
         <div class="exclusives-container">
@@ -360,10 +360,9 @@
         const database = getDatabase();
 
 
-        onChildAdded(ref(database, 'jobs'), (snapshot) => {
-            if (snapshot.val().featured == 'Yes') {
-                $('.exclusives-container').prepend(`
-                    <div class="exclusives-item" style="background-image: url('${snapshot.val().image}');">
+        onChildAdded(ref(database, 'stanford'), (snapshot) => {
+            $('.exclusives-container').prepend(`
+                <div class="exclusives-item" style="background-image: url('${snapshot.val().image}');">
                         <div class="exclusives-item-top">
                             <h5>THIS JUST IN</h5>
                             <a href="explore.html" class="light-blue tag">${snapshot.val().tag}</a>
@@ -383,11 +382,8 @@
                         </div>
                         <p class="trending-title" hidden>${snapshot.val().title}</p>
                         <p class="trending-description" hidden>${snapshot.val().description}</p>
-                    </div>
-                `)
-            } else {
-
-            }
+                </div>
+            `)
         })
 
         $(document).on('click', '.exclusives-item', function() {
