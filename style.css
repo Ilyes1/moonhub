@@ -30,11 +30,11 @@ header {
     margin-bottom: 20px;
 }
 
-/* #stanfordHome {
+#stanfordHome {
     background-image: url('images/stanford-bg.jpg');
     background-blend-mode: darken;
     background-color: #00000071;
-} */
+}
 
 nav {
     width: 100%;
