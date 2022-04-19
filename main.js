@@ -18,13 +18,23 @@ $(document).ready(function() {
     })
 
     // $('.popup, .popup-invite, .popup-startups').hide()
-    $(document).on('click', '.profile-btn, .talk', function(e) {
+    $(document).on('click', '.talk', function(e) {
         e.preventDefault()
-        $('.popup').fadeIn()
+        // $('.login-popup').fadeIn()
+        // $('.auth-content').not('.auth-1').hide()
+        // $('.auth-1').show()
+        
+        // $('.popup').fadeIn()
+
+        $('.typeform-btn').click()
     })
 
     $('.popup-overlay').click(function() {
         $(this).parent().fadeOut()
+    })
+
+    $('.login-close img').click(function() {
+        $('.login-popup').fadeOut()
     })
 
     $('.welcome-btn').click(function(e) {
@@ -48,8 +58,20 @@ $(document).ready(function() {
         $(this).find('ul').slideToggle(200)
     })
 
-    $('#startupBtn')[0].click()
-        
+    
+    $('.auth-content').not('.auth-1').hide()
+
+    $('.auth-btn').click(function() {
+        var next = $(this).attr('data-next')
+        $('.auth-content').not(this).hide()
+        $(next).fadeIn()
+    })
+
+    $('.signin-btn').click(function() {
+        $('.login-popup').fadeOut()
+    })
+
+
 
 
 })

@@ -30,6 +30,12 @@ $(document).ready(function() {
     })
 
 
+    $('.filter').click(function() {
+        $('.filter').not(this).find('ul').slideUp()
+        $(this).find('ul').slideToggle(200)
+    })
+
+    
 
 
 

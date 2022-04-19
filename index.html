@@ -203,6 +203,64 @@
         </div>
     </div>
 
+    <div class="login-popup">
+        <div class="popup-overlay"></div>
+        <div class="login-popup-container">
+            <div class="auth-content auth-1">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">Register/Sign In</h4>
+                <img class="login-img" src="images/auth.jpg" alt="">
+                <button data-next=".login-content" class="auth-btn">Talent Member</button>
+            </div>
+            <div class="auth-content login-content">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">Register/Sign In</h4>
+                <img class="login-img" src="images/login.jpg" alt="">
+                <button data-next=".google-signup-name-content" class="login-btn auth-btn google-link"><img src="images/google.png" alt=""><h4>Continue with Google</h4></button>
+                <button data-next=".signup-email-content" class="auth-btn login-btn"><img src="images/email.png" alt=""><h4>Continue with Email</h4></button>
+            </div>
+            <div class="auth-content login-email-content">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">Sign In</h4>
+                <input id="loginEmail" type="email" class="login-input" placeholder="Email">
+                <button data-next=".login-password-content" class="auth-btn">Continue</button>
+            </div>
+            <div class="auth-content login-password-content">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">Sign In</h4>
+                <input id="loginPassword" type="password" class="login-input" placeholder="Password">
+                <button class="auth-btn signin-btn">Sign In</button>
+            </div>
+            <div class="auth-content signup-email-content">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">Sign Up / Sign In</h4>
+                <input id="signupEmail" type="email" class="login-input" placeholder="EMAIL">
+                <input id="signupPassword" type="password" class="login-input" placeholder="PASSWORD">
+                <button data-next=".signup-name-content" class="auth-btn">Continue</button>
+            </div>
+            <div class="auth-content signup-name-content">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">About You</h4>
+                <input id="signupName" type="text" class="login-input" placeholder="Your full name">
+                <div class="signup-input-container">
+                    <span>www.linkedin.com/in/</span>
+                    <input id="signupLinkedin" type="text" class="login-input">
+                </div>
+                <button class="auth-btn signup-btn">Sign Up</button>
+            </div>
+            <div class="auth-content google-signup-name-content">
+                <span class="login-close"><img src="assets/icons/close.png" alt=""></span>
+                <h4 class="login-title">About You</h4>
+                <input id="googleSignupName" type="text" class="login-input" placeholder="Your full name">
+                <div class="signup-input-container">
+                    <span>www.linkedin.com/in/</span>
+                    <input id="googleSignupLinkedin" type="text" class="login-input">
+                </div>
+                <button class="auth-btn google-signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
     <div class="popup">
         <div class="popup-overlay"></div>
         <div class="popup-container">
@@ -264,9 +322,9 @@
 
     
 
-    <div data-tf-popover="Rf1Q0KRO" data-tf-button-color="#009ACB"
+    <!-- <div data-tf-popover="Rf1Q0KRO" data-tf-button-color="#009ACB"
     data-tf-button-text="Launch me" data-tf-iframe-props="title=Registration Form"
-    data-tf-medium="snippet" style="all:unset;"></div>
+    data-tf-medium="snippet" style="all:unset;"></div> -->
 
 
     <button class="typeform-btn" data-tf-popup="Rf1Q0KRO" data-tf-iframe-props="title=Registration Form"
@@ -278,55 +336,15 @@
 
 
 
+
+
     <!-- animation -->
     <div class="loading-animation">
-        <div class="roket-container">
-      
-            <div class="wing-left"></div>
-            <div class="wing-right"></div>
-            <div class="exhaust"></div>
-            
-            <div class="capsule">
-              <div class="top">
-                <div class="shadow"></div>
-              </div>
-              <div class="base"></div>
-            </div>
-            
-            <div class="window-big"></div>
-            <div class="window-small"></div>
-            
-            <div class="fire-1"></div>
-            <div class="fire-2"></div>
-            <div class="fire-3"></div>
-            <div class="fire-4"></div>
-            
-            
-            <div class="spark-2"></div>
-              <div class="spark-3"></div>
-              <div class="spark-4"></div>
-             
-              <div class="star star-1"></div>
-              <div class="star star-2"></div>
-              <div class="star star-3"></div>
-              <div class="star star-4"></div>
-              <div class="star star-5"></div>
-              <div class="star star-6"></div>
-              <div class="star star-7"></div>
-              <div class="star star-8"></div>
-              <div class="star star-9"></div>
-              <div class="star star-10"></div>
-              <div class="star star-11"></div>
-              <div class="star star-12"></div>
-              <div class="star star-13"></div>
-              <div class="star star-14"></div>
-              <div class="star star-15"></div>
-              <div class="star star-16"></div>
-            
-          </div>
+          <img src="images/loading.gif" alt="">
     </div>
     <!-- animation -->
 
+    <a class="log-link" href="./logged/index.html"></a>
 
 
     <script src="assets/js/jquery.js"></script>
@@ -339,6 +357,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
         import { getDatabase, onValue, ref, onChildAdded, get, set, child, onChildRemoved } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -358,6 +377,7 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         const database = getDatabase();
+        const auth = getAuth();
 
 
         onChildAdded(ref(database, 'jobs'), (snapshot) => {
@@ -495,6 +515,88 @@
             
         })
 
+
+
+        $('.signup-btn').click(function(e) {
+            e.preventDefault()
+
+            var email = $('#signupEmail').val()
+            var password = $('#signupPassword').val()
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                updateProfile(user, {
+                    displayName: $('#signupName').val()
+                }).then(() => {
+                    set(child(ref(database, 'users'), user.uid), {
+                        name: user.displayName,
+                        email: user.email,
+                        linedIn: $('#signupLinkedin').val(),
+                        opportunities: '[]'
+                    })
+                    $('.log-link')[0].click()
+                })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage)
+            });
+        })
+
+
+        $('.google-link').click(function() {
+
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                // set(child(ref(database, 'users'), user.uid), {
+                //         name: user.displayName,
+                //         email: user.email,
+                //         linedIn: `https://linkedin-com/${user.displayName}`,
+                //         opportunities: '[]'
+                //     })
+                //     $('.log-link')[0].click()
+
+                var opps;
+                get(child(ref(database, 'users'), user.uid)).then((snapshot) => {
+                        opps = snapshot.val().opportunities
+                    }).catch((err) => {
+                        opps = '[]'
+                    })
+
+                $('#googleSignupName').val(user.displayName)
+
+                $('.google-signup-btn').click(function() {
+                    set(child(ref(database, 'users'), user.uid), {
+                        name: $('#googleSignupName').val(),
+                        email: user.email,
+                        linkedIn: `https://www.linkedin.com/${$('#googleSignupLinkedin').val()}`,
+                        opportunities: opps
+                    }).then(() => {
+                        $('.log-link')[0].click()
+                    })
+                })
+                // ...
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
+
+        })
 
 
 

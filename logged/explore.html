@@ -28,11 +28,9 @@
         </div>
         <div class="nav-right">
             <ul>
-                <li><a class="active" href="explore.html">Jobs</a></li>
-                <li><a href="earn.html">Earn</a></li>
-                <li><a class="community-link" href="#">x(Community)</a></li>
-                <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
-                <li class="blue-navlink"><a class="talk" href="#">Get Matched</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a class="active" href="explore.html">Discover</a></li>
+                <li class="blue-navlink"><a href="index.html">Matches</a></li>
                 <li class="menu-btn"><img src="assets/icons/menu.png" alt=""></li>
             </ul>
         </div>
@@ -46,11 +44,9 @@
                     <button type="submit" class="search-btn"><img src="assets/icons/search.png" alt=""></button>
                 </form>
             </li>
-            <li><a href="explore.html">Jobs</a></li>
-            <li><a href="earn.html">Earn</a></li>
-            <li><a class="community-link" href="#">x(Community)</a></li>
-            <li><a href="#" data-tf-popup="aeCJLEne" data-tf-iframe-props="title=Registration Form" data-tf-medium="snippet">For Startups</a>
-            <li class="blue-navlink"><a class="talk" href="#">Talk to an Expert</a></li>
+            <li><a href="explore.html">Discover</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li class="blue-navlink"><a href="index.html">Matches</a></li>
         </ul>
     </div>
 
@@ -121,7 +117,7 @@
     </div>
 
     
-    <section class="jobs-container">
+    <section class="jobs-container" style="margin-top: 114px;">
         
         <div class="jobs-left">
             
@@ -242,35 +238,6 @@
                 </p>
             </div>
         </div>
-    </div>
-
-    <div class="apply-popup">
-        <div class="popup-overlay"></div>
-
-        <div class="status-container">
-            <h3 class="status-title">Get introduced to the team at <span class="popupCompany"></span></h3>
-            <h5 class="status-subtitle">Write a short note to about why you’re interested in the opportunity. We’ll use this information to help you get an introduction. You’ll receive an email introduction to the hiring manager after <span class="popupCompany"></span> approves the request!</h5>
-            <textarea class="status-textarea"></textarea>
-            <div class="apply-choices">
-                <span class="choices-label">I am:</span>
-                <div class="choices-container">
-                    <span class="apply-choice">
-                        <div class="apply-checkbox"></div>
-                        <div class="apply-text">Ready to interview</div>
-                    </span>
-                    <span class="apply-choice">
-                        <div class="apply-checkbox"></div>
-                        <div class="apply-text">Interested in interviewing, but want to learn more first</div>
-                    </span>
-                    <span class="apply-choice">
-                        <div class="apply-checkbox"></div>
-                        <div class="apply-text">Just curious</div>
-                    </span>
-                </div>
-            </div>
-            <div class="status-submit"><button class="status-btn">Send</button></div>
-        </div>
-
     </div>
 
 
@@ -654,15 +621,6 @@
             $('.popup-contact').fadeIn()
         })
 
-
-        $(document).on('click', '.profile-btn', function() {
-            $('.apply-popup').fadeIn()
-        })
-
-        $('.apply-choice').click(function() {
-            $('.apply-choice').not(this).find('.apply-checkbox').removeClass('active')
-            $(this).find('.apply-checkbox').addClass('active')
-        })
 
         $('#contactForm').submit(function(e) {
             e.preventDefault()
